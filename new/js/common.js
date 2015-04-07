@@ -2,7 +2,7 @@
 function contact() {
     toggle(".contact");
     var rowpos = $('#contact').position();
-    $('body').scrollTop(rowpos.top);
+    $(document).scrollTop(rowpos.top);
 }
 function home() {
     toggle("#hm-slide");

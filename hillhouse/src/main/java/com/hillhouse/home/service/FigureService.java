@@ -1,10 +1,10 @@
 package com.hillhouse.home.service;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.commons.lang.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.doublev2v.foundation.entity.MediaContent;
@@ -13,6 +13,7 @@ import com.doublev2v.foundation.service.MediaService;
 import com.hillhouse.home.entity.figure.Figure;
 import com.hillhouse.home.entity.figure.FigureRepository;
 
+@Service
 public class FigureService {
 	@Autowired
 	private FigureRepository repository;
@@ -32,11 +33,24 @@ public class FigureService {
 		return repository.getPagedList(pageNo, pageSize);
 	}
 	
-	public void updateFigure(Figure figure) throws IOException {
+	public Figure getFigure(String id) {
+		return repository.getItem(id);
+	}
+	
+	public void updateFigure(Figure figure, MultipartFile avatar) throws IOException {
 		Figure origion=repository.getItem(figure.getId());
-		if(origion==null)return;
-		figure.setMedia(origion.getMedia());
-		repository.saveOrUpdate(figure);
+		if(origion==null)return;		
+		if(avatar!=null) {
+			MediaContent media=origion.getMedia();
+			if(media==null) {
+				media=mediaService.save(avatar);				
+			} else {
+				media=mediaService.update(media, avatar);				
+			}
+			origion.setMedia(media);
+		}
+		figure.update(origion);
+		repository.update(origion);
 	}
 	
 	public void deleteFigure(String id) throws IOException {

@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -59,7 +60,16 @@ public class Portfolio extends BaseModel {
 	public void setLink(String link) {
 		this.link = link;
 	}
+	/**
+	 * @return
+	 */
+	@Transient
 	public String getUrl() {
 		return media.getUrl();
+	}
+	
+	public Portfolio update(Portfolio portfolio) {
+		portfolio.setLink(link);
+		return portfolio;
 	}
 }

@@ -86,6 +86,10 @@ public abstract class HibernateRepository<T,PK extends Serializable> implements 
 	public void update(T t) {
 		getSession().update(t);
 	}
+	
+	public void merge(T t) {
+		getSession().merge(t);
+	}
 
 	public void delete(T t) {
 		getSession().delete(t);
@@ -97,22 +101,6 @@ public abstract class HibernateRepository<T,PK extends Serializable> implements 
 	}
 
 	public void saveOrUpdate(T t) {
-		getSession().saveOrUpdate(t);
-	}
-	
-	protected void saveObject(Object t) {
-		getSession().save(t);
-	}
-
-	protected void updateObject(Object t) {
-		getSession().update(t);
-	}
-
-	protected void deleteObject(Object t) {
-		getSession().delete(t);
-	}
-
-	protected void saveOrUpdateObject(Object t) {
 		getSession().saveOrUpdate(t);
 	}
 	

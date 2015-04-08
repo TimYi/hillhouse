@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -139,7 +140,23 @@ public class Figure extends BaseModel {
 	 * 直接获取头像
 	 * @return
 	 */
+	@Transient
 	public String getAvatar() {
 		return this.media.getUrl();
+	}
+	/**
+	 * 将自身必要属性更新到目标Figure中，如果有DTO，将此方法移植到DTO中。
+	 * @param figure
+	 * @return 传入的figure自身，由于figure是引用对象，因此可以不使用返回值。
+	 */
+	public Figure update(Figure figure) {
+		figure.setFirstname(firstname);
+		figure.setFullTitle(fullTitle);
+		figure.setTitle(fullTitle);
+		figure.setLastname(lastname);
+		figure.setPriority(priority);
+		figure.setSummary(summary);
+		figure.setStory(story);
+		return figure;
 	}
 }

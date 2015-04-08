@@ -16,6 +16,7 @@ public interface BaseRepository<T,PK extends Serializable> {
 	T getItem(PK id);
 	void save(T t);
 	void update(T t);
+	void merge(T t);
 	void delete(T t);
 	void delete(PK id);
 	void saveOrUpdate(T t);

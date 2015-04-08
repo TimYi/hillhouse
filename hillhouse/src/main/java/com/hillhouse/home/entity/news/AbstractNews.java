@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -144,6 +145,10 @@ public class AbstractNews extends BaseModel {
 	public void setLinkShorthand(String linkShorthand) {
 		this.linkShorthand = linkShorthand;
 	}
+	/**
+	 * @return
+	 */
+	@Transient
 	public String getImg() {
 		return this.media.getUrl();
 	}
@@ -159,5 +164,16 @@ public class AbstractNews extends BaseModel {
 	 */	
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	public <T extends AbstractNews> T update(T news) {
+		news.setAuthor(author);
+		news.setDate(date);
+		news.setTitle(title);
+		news.setLink(link);
+		news.setLinkShorthand(linkShorthand);
+		news.setOrigion(origion);
+		news.setSummary(summary);
+		return news;
 	}
 }

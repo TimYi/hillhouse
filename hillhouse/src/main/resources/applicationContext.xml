@@ -33,6 +33,7 @@
 	 	<property name="packagesToScan">
         	<list>
             	<value>com.doublev2v.*</value>
+            	<value>com.hillhouse.home.*</value>
         	</list>
         </property>
 	</bean>
@@ -93,7 +94,7 @@
     <!-- declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.
     <context:annotation-config/>--> 
     <!-- 注释检测范围，扫描@Component,@Service,@Controller等 -->
-    <context:component-scan base-package="com.doublev2v"/>
+    <context:component-scan base-package="com.doublev2v,com.hillhouse.home"/>
 
     <!-- 用来解析文件上传等multi-part请求 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>

@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -83,7 +84,18 @@ public class Story extends BaseModel {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	/**
+	 * @return
+	 */
+	@Transient
 	public String getImg() {
 		return media.getUrl();
+	}
+	
+	public Story update(Story story) {
+		story.setContent(content);
+		story.setSummary(summary);
+		story.setTitle(title);
+		return story;
 	}
 }

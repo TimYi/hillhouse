@@ -26,14 +26,27 @@ public class AbstractNewsService<T extends AbstractNews> {
 		}
 		repository.save(news);
 	}
-	public PagedList<T> getNews(Integer pageNo, Integer pageSize) {
+	public T getNews(String id) {
+		return repository.getItem(id);
+	}
+	public PagedList<T> getList(Integer pageNo, Integer pageSize) {
 		return repository.getPagedList(pageNo, pageSize);
 	}
-	public void updateNews(T news) {
+	public void updateNews(T news, MultipartFile img) throws IOException {
 		Validate.notNull(news);
 		T origion=repository.getItem(news.getId());
-		news.setMedia(origion.getMedia());
-		repository.saveOrUpdate(news);
+		if(origion==null)return;
+		if(img!=null) {
+			MediaContent media=origion.getMedia();
+			if(media==null) {
+				media=mediaService.save(img);
+			} else {
+				media=mediaService.update(media, img);
+			}
+			origion.setMedia(media);
+		}
+		news.update(origion);	
+		repository.update(origion);
 	}
 	public void deleteNews(String id) throws IOException {
 		T news=repository.getItem(id);

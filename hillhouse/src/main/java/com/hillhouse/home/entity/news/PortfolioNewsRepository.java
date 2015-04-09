@@ -2,9 +2,9 @@ package com.hillhouse.home.entity.news;
 
 import org.springframework.stereotype.Repository;
 
-import com.doublev2v.foundation.repository.BaseModelRepository;
+import com.hillhouse.home.entity.LanguageModelRepository;
 
 @Repository
-public class PortfolioNewsRepository extends BaseModelRepository<PortfolioNews, String> {
+public class PortfolioNewsRepository extends LanguageModelRepository<PortfolioNews, String> {
 
 }

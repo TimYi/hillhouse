@@ -2,9 +2,9 @@ package com.hillhouse.home.entity.story;
 
 import org.springframework.stereotype.Repository;
 
-import com.doublev2v.foundation.repository.BaseModelRepository;
+import com.hillhouse.home.entity.LanguageModelRepository;
 
 @Repository
-public class StoryRepository extends BaseModelRepository<Story, String> {
+public class StoryRepository extends LanguageModelRepository<Story, String> {
 
 }

@@ -9,7 +9,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.doublev2v.foundation.entity.MediaContent;
 import com.doublev2v.foundation.model.PagedList;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
 import com.doublev2v.foundation.service.MediaService;
+import com.hillhouse.home.entity.LanguageModel.Language;
 import com.hillhouse.home.entity.figure.Figure;
 import com.hillhouse.home.entity.figure.FigureRepository;
 
@@ -29,15 +31,15 @@ public class FigureService {
 		repository.save(figure);
 	}
 	
-	public PagedList<Figure> getList(Integer pageNo, Integer pageSize) {
-		return repository.getPagedList(pageNo, pageSize);
+	public PagedList<Figure> getList(Integer pageNo, Integer pageSize, Language language) {
+		return repository.getPagedList(pageNo, pageSize, language);
 	}
 	
 	public Figure getFigure(String id) {
 		return repository.getItem(id);
 	}
 	
-	public void updateFigure(Figure figure, MultipartFile avatar) throws IOException {
+	public void updateFigure(DTOUpdate<Figure, String> figure, MultipartFile avatar) throws IOException {
 		Figure origion=repository.getItem(figure.getId());
 		if(origion==null)return;		
 		if(avatar!=null) {

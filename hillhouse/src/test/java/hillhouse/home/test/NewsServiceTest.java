@@ -1,4 +1,4 @@
-package home;
+package hillhouse.home.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.doublev2v.foundation.model.PagedList;
 import com.doublev2v.foundation.test.JpegMultipartFile;
+import com.hillhouse.home.entity.LanguageModel.Language;
 import com.hillhouse.home.entity.news.News;
 import com.hillhouse.home.service.NewsService;
 
@@ -19,7 +20,7 @@ public class NewsServiceTest {
 		service=ctx.getBean(NewsService.class);
 	}
 	public static void main(String[] args) throws IOException {
-		addNews();
+		getList();
 	}
 	private static void addNews() throws IOException {
 		News news=new News();
@@ -28,6 +29,7 @@ public class NewsServiceTest {
 		news.setOrigion("新闻来源");
 		news.setTitle("标题");
 		news.setType("test");
+		news.setLanguage(Language.CH);
 		File file=new File("E:/_Git/hillhouse/new/image/news.JPG");
 		JpegMultipartFile img=new JpegMultipartFile(file);
 		service.addNews(news, img);
@@ -45,7 +47,7 @@ public class NewsServiceTest {
 		service.updateNews(news, img);
 	}
 	private static void getList() {
-		PagedList<News> list=service.getList(null, null);
+		PagedList<News> list=service.getList(null, null,Language.EN);
 		System.out.println(list.getTotalCount());
 	}
 }

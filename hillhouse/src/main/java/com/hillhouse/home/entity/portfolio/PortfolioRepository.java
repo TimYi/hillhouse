@@ -2,8 +2,8 @@ package com.hillhouse.home.entity.portfolio;
 
 import org.springframework.stereotype.Repository;
 
-import com.doublev2v.foundation.repository.BaseModelRepository;
+import com.hillhouse.home.entity.LanguageModelRepository;
 
 @Repository
-public class PortfolioRepository extends BaseModelRepository<Portfolio, String> {
+public class PortfolioRepository extends LanguageModelRepository<Portfolio, String> {
 }

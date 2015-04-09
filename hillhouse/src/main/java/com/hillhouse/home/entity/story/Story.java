@@ -10,11 +10,12 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.doublev2v.foundation.entity.BaseModel;
 import com.doublev2v.foundation.entity.MediaContent;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
+import com.hillhouse.home.entity.LanguageModel;
 
 @Entity
-public class Story extends BaseModel {
+public class Story extends LanguageModel implements DTOUpdate<Story,String> {
 	private String id;
 	private MediaContent media;
 	private String title;
@@ -92,6 +93,7 @@ public class Story extends BaseModel {
 		return media.getUrl();
 	}
 	
+	@Override
 	public Story update(Story story) {
 		story.setContent(content);
 		story.setSummary(summary);

@@ -9,7 +9,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.doublev2v.foundation.entity.MediaContent;
 import com.doublev2v.foundation.model.PagedList;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
 import com.doublev2v.foundation.service.MediaService;
+import com.hillhouse.home.entity.LanguageModel.Language;
 import com.hillhouse.home.entity.portfolio.Portfolio;
 import com.hillhouse.home.entity.portfolio.PortfolioRepository;
 
@@ -27,7 +29,7 @@ public class PortfolioService {
 		}
 		repository.save(portfolio);
 	}
-	public void updatePortfolio(Portfolio portfolio, MultipartFile url) throws IOException {
+	public void updatePortfolio(DTOUpdate<Portfolio, String> portfolio, MultipartFile url) throws IOException {
 		Portfolio origion=repository.getItem(portfolio.getId());
 		if(origion==null)return;
 		if(url!=null) {
@@ -42,8 +44,8 @@ public class PortfolioService {
 		portfolio.update(origion);
 		repository.update(origion);
 	}
-	public PagedList<Portfolio> getList(Integer pageNo, Integer pageSize) {
-		return repository.getPagedList(pageNo, pageSize);
+	public PagedList<Portfolio> getList(Integer pageNo, Integer pageSize, Language language) {
+		return repository.getPagedList(pageNo, pageSize, language);
 	}
 	public Portfolio getPortfolio(String id) {
 		return repository.getItem(id);

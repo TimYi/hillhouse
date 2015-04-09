@@ -16,13 +16,14 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.doublev2v.foundation.entity.BaseModel;
 import com.doublev2v.foundation.entity.MediaContent;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
+import com.hillhouse.home.entity.LanguageModel;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type")
-public class AbstractNews extends BaseModel {
+public class AbstractNews<T extends AbstractNews> extends LanguageModel implements DTOUpdate<T,String> {
 	private String id;
 	private MediaContent media;
 	private String title;
@@ -166,7 +167,7 @@ public class AbstractNews extends BaseModel {
 		this.type = type;
 	}
 	
-	public <T extends AbstractNews> T update(T news) {
+	public T update(T news) {
 		news.setAuthor(author);
 		news.setDate(date);
 		news.setTitle(title);

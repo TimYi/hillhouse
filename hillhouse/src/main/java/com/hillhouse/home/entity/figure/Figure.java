@@ -10,11 +10,12 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.doublev2v.foundation.entity.BaseModel;
 import com.doublev2v.foundation.entity.MediaContent;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
+import com.hillhouse.home.entity.LanguageModel;
 
 @Entity
-public class Figure extends BaseModel {
+public class Figure extends LanguageModel implements DTOUpdate<Figure,String> {
 	private String id;
 	private Integer priority;
 	private MediaContent media;
@@ -149,6 +150,7 @@ public class Figure extends BaseModel {
 	 * @param figure
 	 * @return 传入的figure自身，由于figure是引用对象，因此可以不使用返回值。
 	 */
+	@Override
 	public Figure update(Figure figure) {
 		figure.setFirstname(firstname);
 		figure.setFullTitle(fullTitle);

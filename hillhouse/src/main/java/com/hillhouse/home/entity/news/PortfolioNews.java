@@ -5,6 +5,6 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue(value="PORTFOLIO")
-public class PortfolioNews extends AbstractNews {
+public class PortfolioNews extends AbstractNews<PortfolioNews> {
 
 }

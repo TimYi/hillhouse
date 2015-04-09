@@ -1,4 +1,4 @@
-package home;
+package hillhouse.home.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,7 +6,9 @@ import java.io.IOException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.doublev2v.foundation.model.PagedList;
 import com.doublev2v.foundation.test.JpegMultipartFile;
+import com.hillhouse.home.entity.LanguageModel.Language;
 import com.hillhouse.home.entity.figure.Figure;
 import com.hillhouse.home.service.FigureService;
 
@@ -18,7 +20,7 @@ public class FigureServiceTest {
 		service=ctx.getBean(FigureService.class);
 	}
 	public static void main(String[] args) throws IOException {
-		editFigure();
+		getList();
 	}
 	private static void addFigure() throws IOException {
 		Figure figure=new Figure();
@@ -29,6 +31,7 @@ public class FigureServiceTest {
 		figure.setTitle("boss");
 		figure.setSummary("a summary");
 		figure.setStory("a long story");
+		figure.setLanguage(Language.EN);
 		File file=new File("E:/_Git/hillhouse/new/image/leizhang.jpg");
 		JpegMultipartFile avatar=new JpegMultipartFile(file);
 		service.addFigure(figure, avatar);
@@ -55,5 +58,9 @@ public class FigureServiceTest {
 	private static void getFigure() {
 		Figure figure=service.getFigure("404040e64c984cc6014c984cc9170001");
 		System.out.println(figure.getAvatar());
+	}
+	private static void getList() {
+		PagedList<Figure> figureList=service.getList(null, null, Language.CH);
+		System.out.println(figureList.getTotalCount());
 	}
 }

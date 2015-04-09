@@ -8,13 +8,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.doublev2v.foundation.entity.MediaContent;
 import com.doublev2v.foundation.model.PagedList;
-import com.doublev2v.foundation.repository.BaseModelRepository;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
 import com.doublev2v.foundation.service.MediaService;
+import com.hillhouse.home.entity.LanguageModel.Language;
+import com.hillhouse.home.entity.LanguageModelRepository;
 import com.hillhouse.home.entity.news.AbstractNews;
 
 public class AbstractNewsService<T extends AbstractNews> {
 	@Autowired
-	private BaseModelRepository<T, String> repository;
+	private LanguageModelRepository<T, String> repository;
 	@Autowired
 	private MediaService mediaService;
 	
@@ -29,10 +31,10 @@ public class AbstractNewsService<T extends AbstractNews> {
 	public T getNews(String id) {
 		return repository.getItem(id);
 	}
-	public PagedList<T> getList(Integer pageNo, Integer pageSize) {
-		return repository.getPagedList(pageNo, pageSize);
+	public PagedList<T> getList(Integer pageNo, Integer pageSize, Language language) {
+		return repository.getPagedList(pageNo, pageSize, language);
 	}
-	public void updateNews(T news, MultipartFile img) throws IOException {
+	public void updateNews(DTOUpdate<T, String> news, MultipartFile img) throws IOException {
 		Validate.notNull(news);
 		T origion=repository.getItem(news.getId());
 		if(origion==null)return;

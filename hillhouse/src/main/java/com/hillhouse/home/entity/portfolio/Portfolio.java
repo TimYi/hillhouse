@@ -10,11 +10,12 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.doublev2v.foundation.entity.BaseModel;
 import com.doublev2v.foundation.entity.MediaContent;
+import com.doublev2v.foundation.model.dto.DTOUpdate;
+import com.hillhouse.home.entity.LanguageModel;
 
 @Entity
-public class Portfolio extends BaseModel {
+public class Portfolio extends LanguageModel implements DTOUpdate<Portfolio,String> {
 	
 	private String id;
 	private MediaContent media;
@@ -68,6 +69,7 @@ public class Portfolio extends BaseModel {
 		return media.getUrl();
 	}
 	
+	@Override
 	public Portfolio update(Portfolio portfolio) {
 		portfolio.setLink(link);
 		return portfolio;

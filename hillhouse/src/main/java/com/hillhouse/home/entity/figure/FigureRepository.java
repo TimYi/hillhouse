@@ -2,9 +2,9 @@ package com.hillhouse.home.entity.figure;
 
 import org.springframework.stereotype.Repository;
 
-import com.doublev2v.foundation.repository.BaseModelRepository;
+import com.hillhouse.home.entity.LanguageModelRepository;
 
 @Repository
-public class FigureRepository extends BaseModelRepository<Figure, String> {
+public class FigureRepository extends LanguageModelRepository<Figure, String> {
 
 }

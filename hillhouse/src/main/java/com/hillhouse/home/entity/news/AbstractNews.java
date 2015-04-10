@@ -7,24 +7,20 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.doublev2v.foundation.entity.MediaContent;
-import com.doublev2v.foundation.model.dto.DTOUpdate;
-import com.hillhouse.home.entity.LanguageModel;
+import com.doublev2v.foundation.media.MediaContent;
+import com.hillhouse.home.base.LanguagePriorityModel;
 
 @Entity
+@Table(name="news")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type")
-public class AbstractNews<T extends AbstractNews> extends LanguageModel implements DTOUpdate<T,String> {
-	private String id;
+public class AbstractNews extends LanguagePriorityModel {
 	private MediaContent media;
 	private String title;
 	private Date date;
@@ -34,21 +30,7 @@ public class AbstractNews<T extends AbstractNews> extends LanguageModel implemen
 	private String link;
 	private String linkShorthand;
 	private String type;
-	/**
-	 * @return the id
-	 */
-	@Id
-	@GenericGenerator(name="idGenerator",strategy="uuid")
-	@GeneratedValue(generator="idGenerator")
-	public String getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	/**
 	 * @return the media
 	 */
@@ -151,7 +133,7 @@ public class AbstractNews<T extends AbstractNews> extends LanguageModel implemen
 	 */
 	@Transient
 	public String getImg() {
-		return this.media.getUrl();
+		return media==null?null:media.getUrl();
 	}
 	/**
 	 * @return the type
@@ -165,16 +147,5 @@ public class AbstractNews<T extends AbstractNews> extends LanguageModel implemen
 	 */	
 	public void setType(String type) {
 		this.type = type;
-	}
-	
-	public T update(T news) {
-		news.setAuthor(author);
-		news.setDate(date);
-		news.setTitle(title);
-		news.setLink(link);
-		news.setLinkShorthand(linkShorthand);
-		news.setOrigion(origion);
-		news.setSummary(summary);
-		return news;
 	}
 }

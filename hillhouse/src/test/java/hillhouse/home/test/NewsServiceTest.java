@@ -6,9 +6,9 @@ import java.io.IOException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.doublev2v.foundation.model.PagedList;
+import com.doublev2v.foundation.core.model.PagedList;
 import com.doublev2v.foundation.test.JpegMultipartFile;
-import com.hillhouse.home.entity.LanguageModel.Language;
+import com.hillhouse.home.base.LanguageModel.Language;
 import com.hillhouse.home.entity.news.News;
 import com.hillhouse.home.service.NewsService;
 
@@ -20,8 +20,9 @@ public class NewsServiceTest {
 		service=ctx.getBean(NewsService.class);
 	}
 	public static void main(String[] args) throws IOException {
-		getList();
+		//getList();
 	}
+	/*
 	private static void addNews() throws IOException {
 		News news=new News();
 		news.setAuthor("易天明");
@@ -49,5 +50,5 @@ public class NewsServiceTest {
 	private static void getList() {
 		PagedList<News> list=service.getList(null, null,Language.EN);
 		System.out.println(list.getTotalCount());
-	}
+	}*/
 }

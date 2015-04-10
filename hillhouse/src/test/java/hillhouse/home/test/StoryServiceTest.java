@@ -17,8 +17,8 @@ public class StoryServiceTest {
 		service=ctx.getBean(StoryService.class);
 	}
 	public static void main(String[] args) throws IOException {
-		updateStory();
 	}
+	/*
 	private static void addStory() throws IOException {
 		Story story=new Story();
 		story.setContent("a long long story");
@@ -37,5 +37,5 @@ public class StoryServiceTest {
 		File file=new File("E:/_Git/hillhouse/new/image/cc.jpg");
 		JpegMultipartFile img=new JpegMultipartFile(file);
 		service.updateStory(story, img);
-	}	
+	}	*/
 }

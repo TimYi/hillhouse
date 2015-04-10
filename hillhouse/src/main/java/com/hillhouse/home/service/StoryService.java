@@ -2,58 +2,25 @@ package com.hillhouse.home.service;
 
 import java.io.IOException;
 
-import org.apache.commons.lang.Validate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.doublev2v.foundation.entity.MediaContent;
-import com.doublev2v.foundation.model.PagedList;
-import com.doublev2v.foundation.model.dto.DTOUpdate;
-import com.doublev2v.foundation.service.MediaService;
-import com.hillhouse.home.entity.LanguageModel.Language;
+import com.doublev2v.foundation.media.MediaContent;
+import com.hillhouse.home.base.LanguageDTOService;
 import com.hillhouse.home.entity.story.Story;
-import com.hillhouse.home.entity.story.StoryRepository;
+import com.hillhouse.home.entity.story.dto.StoryDTO;
 
 @Service
-public class StoryService {
-	@Autowired
-	private StoryRepository repository;
-	@Autowired
-	private MediaService mediaService;
-	public void addStory(Story story, MultipartFile img) throws IOException {
-		Validate.notNull(story);
-		if(img!=null) {
-			MediaContent media=mediaService.save(img);
-			story.setMedia(media);
-		}
-		repository.save(story);
-	}
-	public void updateStory(DTOUpdate<Story, String> story, MultipartFile img) throws IOException {
-		Story origion=repository.getItem(story.getId());
-		if(origion==null)return;
-		if(img!=null) {
-			MediaContent media=origion.getMedia();
-			if(media==null) {
-				media=mediaService.save(img);
-			} else {
-				media=mediaService.update(media, img);
-			}
-			origion.setMedia(media);
-		}
-		story.update(origion);
-		repository.update(origion);
-	}
-	public PagedList<Story> getList(Integer pageNo, Integer pageSize, Language language) {
-		return repository.getPagedList(pageNo, pageSize, language);
-	}
-	public Story getStory(String id) {
-		return repository.getItem(id);
-	}
-	public void deleteStory(String id) throws IOException {
-		Story story=repository.getItem(id);
+public class StoryService extends LanguageDTOService<Story, StoryDTO> {
+	@Override
+	public void delete(String id) {
+		Story story=getRepository().getItem(id);
+		if(story==null)return;
 		MediaContent media=story.getMedia();
-		repository.delete(story);
-		mediaService.delete(media);
+		getRepository().delete(story);
+		try {
+			mediaService.delete(media);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

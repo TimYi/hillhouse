@@ -3,39 +3,16 @@ package com.hillhouse.home.entity.portfolio;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.doublev2v.foundation.entity.MediaContent;
-import com.doublev2v.foundation.model.dto.DTOUpdate;
-import com.hillhouse.home.entity.LanguageModel;
+import com.doublev2v.foundation.media.MediaContent;
+import com.hillhouse.home.base.LanguagePriorityModel;
 
 @Entity
-public class Portfolio extends LanguageModel implements DTOUpdate<Portfolio,String> {
-	
-	private String id;
+public class Portfolio extends LanguagePriorityModel {
 	private MediaContent media;
 	private String link;
-	
-	/**
-	 * @return the id
-	 */
-	@Id
-	@GenericGenerator(name="idGenerator",strategy="uuid")
-	@GeneratedValue(generator="idGenerator")
-	public String getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
 	/**
 	 * @return the media
 	 */
@@ -66,12 +43,6 @@ public class Portfolio extends LanguageModel implements DTOUpdate<Portfolio,Stri
 	 */
 	@Transient
 	public String getUrl() {
-		return media.getUrl();
-	}
-	
-	@Override
-	public Portfolio update(Portfolio portfolio) {
-		portfolio.setLink(link);
-		return portfolio;
+		return media==null?null:media.getUrl();
 	}
 }

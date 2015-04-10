@@ -1,35 +1,17 @@
 package com.hillhouse.home.entity.contact;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.doublev2v.foundation.entity.BaseModel;
+import com.doublev2v.foundation.core.entity.UUIDBaseModel;
+import com.doublev2v.foundation.updatable.IdentifiedUpdatable;
 
 @Entity
-public class Contact extends BaseModel {
-	private String id;
+public class Contact extends UUIDBaseModel implements IdentifiedUpdatable<String, Contact> {
 	private String name;
 	private String email;
 	private String subject;
 	private String message;
-	/**
-	 * @return the id
-	 */
-	@Id
-	@GenericGenerator(name="idGenerator",strategy="uuid")
-	@GeneratedValue(generator="idGenerator")
-	public String getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	/**
 	 * @return the name
 	 */
@@ -78,5 +60,12 @@ public class Contact extends BaseModel {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+	@Override
+	public Contact update(Contact d) {
+		d.setEmail(email);
+		d.setMessage(message);
+		d.setName(name);
+		d.setSubject(subject);
+		return d;
+	}
 }

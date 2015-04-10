@@ -16,6 +16,10 @@
     <!-- 配置本地资源文件，可通过${}使用 -->
     <context:property-placeholder location="classpath:jdbc.properties,classpath:app.properties"/> 
     
+    <!-- declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.
+    <context:annotation-config/>--> 
+    <!-- 注释检测范围，扫描@Component,@Service,@Controller等 -->
+    <context:component-scan base-package="com.doublev2v,com.hillhouse.home"/>
     
     
     <bean id="sessionFactory"
@@ -84,17 +88,12 @@
         </property>
   	</bean>
 
-  	<bean class="com.doublev2v.foundation.service.LocalMediaService">
+  	<bean class="com.doublev2v.foundation.media.LocalMediaService">
   		<property name="serverName" value="${imageServer.name}"/>
   		<property name="serverAddress" value="${imageServer.address}"/>
   		<property name="basePath" value="${imageServer.basePath}"/>
   		<property name="relativePath" value="${imageServer.relativePath}"/>
   	</bean> 
-      
-    <!-- declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.
-    <context:annotation-config/>--> 
-    <!-- 注释检测范围，扫描@Component,@Service,@Controller等 -->
-    <context:component-scan base-package="com.doublev2v,com.hillhouse.home"/>
 
     <!-- 用来解析文件上传等multi-part请求 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>

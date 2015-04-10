@@ -3,39 +3,18 @@ package com.hillhouse.home.entity.story;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.doublev2v.foundation.entity.MediaContent;
-import com.doublev2v.foundation.model.dto.DTOUpdate;
-import com.hillhouse.home.entity.LanguageModel;
+import com.doublev2v.foundation.media.MediaContent;
+import com.hillhouse.home.base.LanguagePriorityModel;
 
 @Entity
-public class Story extends LanguageModel implements DTOUpdate<Story,String> {
-	private String id;
+public class Story extends LanguagePriorityModel {
 	private MediaContent media;
 	private String title;
 	private String summary;
 	private String content;
-	/**
-	 * @return the id
-	 */
-	@Id
-	@GenericGenerator(name="idGenerator",strategy="uuid")
-	@GeneratedValue(generator="idGenerator")
-	public String getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
 	/**
 	 * @return the media
 	 */
@@ -91,13 +70,5 @@ public class Story extends LanguageModel implements DTOUpdate<Story,String> {
 	@Transient
 	public String getImg() {
 		return media.getUrl();
-	}
-	
-	@Override
-	public Story update(Story story) {
-		story.setContent(content);
-		story.setSummary(summary);
-		story.setTitle(title);
-		return story;
 	}
 }

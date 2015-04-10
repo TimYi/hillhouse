@@ -1,4 +1,4 @@
-package hillhouse.home.test;
+package com.hillhouse.home.test;
 
 import java.io.File;
 
@@ -14,12 +14,13 @@ import com.hillhouse.home.service.FigureService;
 public class FigureServiceTest {
 	
 	private static FigureService service;
-	static {
+	private static void init() {
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
 		service=ctx.getBean(FigureService.class);
 	}
 	public static void main(String[] args) {
-		add();
+		init();
+		update();
 	}
 	private static void add() {
 		FigureDTO figure=new FigureDTO();
@@ -40,7 +41,7 @@ public class FigureServiceTest {
 
 	private static void update() {
 		FigureDTO figure=new FigureDTO();
-		figure.setId("404040e64c9d4c12014c9d4c150f0001");
+		figure.setId("404040e64ca27e66014ca27e76160001");
 		figure.setFirstname("Yi");
 		figure.setLastname("Tianming");
 		figure.setFullTitle("Our boss");

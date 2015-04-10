@@ -9,7 +9,7 @@ import com.hillhouse.home.base.LanguageDTOService;
 import com.hillhouse.home.entity.news.PortfolioNews;
 import com.hillhouse.home.entity.news.dto.NewsDTO;
 
-@Service
+//@Service
 public class PortfolioNewsService extends LanguageDTOService<PortfolioNews, NewsDTO> {
 	@Override
 	public void delete(String id) {

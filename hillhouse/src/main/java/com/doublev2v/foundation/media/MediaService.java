@@ -2,6 +2,7 @@ package com.doublev2v.foundation.media;
 
 import java.io.IOException;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author pc
  *
  */
+@Transactional
 public interface MediaService {
 	MediaContent getMedia(String id);
 	/**

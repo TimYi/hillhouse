@@ -1,4 +1,4 @@
-package hillhouse.home.test;
+package com.hillhouse.home.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.doublev2v.foundation.test.JpegMultipartFile;
+import com.hillhouse.home.base.LanguageModel.Language;
 import com.hillhouse.home.entity.story.Story;
+import com.hillhouse.home.entity.story.dto.StoryDTO;
 import com.hillhouse.home.service.StoryService;
 
 public class StoryServiceTest {
@@ -17,6 +19,19 @@ public class StoryServiceTest {
 		service=ctx.getBean(StoryService.class);
 	}
 	public static void main(String[] args) throws IOException {
+		add();
+	}
+	private static void add() {
+		StoryDTO story=new StoryDTO();
+		story.setContent("a long long story");
+		story.setSummary("a summary");
+		story.setTitle("title");
+		story.setLanguage(Language.EN);
+		File file=new File("E:/_Git/hillhouse/new/image/cc.jpg");
+		JpegMultipartFile img=new JpegMultipartFile(file);
+		story.setMedia(img);
+		service.add(story);
+		System.out.println(story.getId());
 	}
 	/*
 	private static void addStory() throws IOException {

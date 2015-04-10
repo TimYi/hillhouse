@@ -1,6 +1,7 @@
 package com.hillhouse.home.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.doublev2v.foundation.core.model.Identified;
 import com.doublev2v.foundation.core.model.PagedList;
@@ -8,6 +9,7 @@ import com.doublev2v.foundation.dto.DTOService;
 import com.doublev2v.foundation.media.MediaService;
 import com.hillhouse.home.base.LanguageModel.Language;
 
+@Transactional
 public class LanguageDTOService<D extends LanguageModel, T extends Identified<String>> extends DTOService<String, D, T> {
 	@Autowired
 	protected MediaService mediaService;

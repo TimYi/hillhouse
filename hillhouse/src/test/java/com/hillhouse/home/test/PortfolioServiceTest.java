@@ -1,4 +1,4 @@
-package hillhouse.home.test;
+package com.hillhouse.home.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,9 +18,8 @@ public class PortfolioServiceTest {
 		service=ctx.getBean(PortfolioService.class);
 	}
 	public static void main(String[] args) throws IOException {
-		//update();
+		add();
 	}
-	/*
 	public static void add() {
 		PortfolioDTO portfolio=new PortfolioDTO();
 		portfolio.setLink("http://www.baidu.com");
@@ -41,5 +40,5 @@ public class PortfolioServiceTest {
 		portfolio.setMedia(url);
 		portfolio.setLanguage(Language.EN);
 		portfolio=service.update(portfolio);
-	}*/
+	}
 }

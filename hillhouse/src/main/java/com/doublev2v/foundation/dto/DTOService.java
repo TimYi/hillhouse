@@ -3,12 +3,14 @@ package com.doublev2v.foundation.dto;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.doublev2v.foundation.core.model.Identified;
 import com.doublev2v.foundation.core.model.PagedList;
 import com.doublev2v.foundation.core.repository.BaseRepository;
 import com.doublev2v.foundation.core.service.BaseService;
 
+@Transactional
 public abstract class DTOService<PK extends Serializable,D,T extends Identified<PK>>
 	implements BaseService<PK, T> {
 	private BaseRepository<D, PK> repository;

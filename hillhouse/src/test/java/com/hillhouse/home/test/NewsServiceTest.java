@@ -1,4 +1,4 @@
-package hillhouse.home.test;
+package com.hillhouse.home.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import com.doublev2v.foundation.core.model.PagedList;
 import com.doublev2v.foundation.test.JpegMultipartFile;
 import com.hillhouse.home.base.LanguageModel.Language;
 import com.hillhouse.home.entity.news.News;
+import com.hillhouse.home.entity.news.dto.NewsDTO;
 import com.hillhouse.home.service.NewsService;
 
 public class NewsServiceTest {
@@ -20,7 +21,21 @@ public class NewsServiceTest {
 		service=ctx.getBean(NewsService.class);
 	}
 	public static void main(String[] args) throws IOException {
-		//getList();
+		add();
+	}
+	private static void add() {
+		NewsDTO news=new NewsDTO();
+		news.setAuthor("易天明");
+		news.setSummary("总结性文字");
+		news.setOrigion("新闻来源");
+		news.setTitle("标题");
+		news.setType("test");
+		news.setLanguage(Language.CH);
+		File file=new File("E:/_Git/hillhouse/new/image/news.JPG");
+		JpegMultipartFile img=new JpegMultipartFile(file);
+		news.setMedia(img);
+		service.add(news);
+		System.out.println(news.getId());
 	}
 	/*
 	private static void addNews() throws IOException {

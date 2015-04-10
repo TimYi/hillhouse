@@ -1,6 +1,5 @@
-package hillhouse.home.test;
+package com.hillhouse.home.test;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.doublev2v.foundation.core.model.PagedList;
@@ -10,12 +9,12 @@ import com.hillhouse.home.service.ContactService;
 public class ContactServiceTest {
 	private static ContactService service;
 	private static void init() {
-		ApplicationContext cxt=new ClassPathXmlApplicationContext("applicationContext.xml");
-		service=cxt.getBean(ContactService.class);
+		ClassPathXmlApplicationContext cxt=new ClassPathXmlApplicationContext("applicationContext.xml");
+		service=cxt.getBean(ContactService.class);	
 	}
 	public static void main(String[] args) {	
 		init();
-		add();
+		update();
 	}
 	private static void add() {
 		Contact contact=new Contact();
@@ -28,7 +27,7 @@ public class ContactServiceTest {
 	}
 	private static void update() {
 		Contact contact=new Contact();
-		contact.setId("404040e64c9cf881014c9cf883df0000");
+		contact.setId("404040e64ca275ba014ca275bc120000");
 		contact.setEmail("yzdytm@163.com");
 		contact.setMessage("你好");
 		contact.setName("Tim");

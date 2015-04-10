@@ -51,4 +51,7 @@ public class PortfolioDTO extends LanguageModel {
 	public MultipartFile getMedia() {
 		return media;
 	}
+	public void setMedia(MultipartFile media) {
+		this.media = media;
+	}
 }

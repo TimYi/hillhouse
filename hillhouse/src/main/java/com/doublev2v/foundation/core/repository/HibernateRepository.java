@@ -5,13 +5,12 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Projections;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doublev2v.foundation.core.model.PagedList;
 
@@ -21,8 +20,9 @@ import com.doublev2v.foundation.core.model.PagedList;
  *
  * @param <T>
  */
+@SuppressWarnings("unchecked")
 public abstract class HibernateRepository<T,PK extends Serializable> implements BaseRepository<T,PK> {
-	@Resource(name="sessionFactory")
+	@Autowired
 	protected SessionFactory sessionFactory;
 	
 	/**
@@ -30,7 +30,6 @@ public abstract class HibernateRepository<T,PK extends Serializable> implements 
 	 * 如果继承中用到泛型，并且有多个参数，需要在子类中重写此方法
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	protected Class<T> getTClass() {		
 		Type[] types=((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments();
 		Class<T> classT=(Class<T>)types[0];

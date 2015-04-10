@@ -3,14 +3,16 @@ package com.doublev2v.foundation.updatable;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.doublev2v.foundation.core.model.PagedList;
 import com.doublev2v.foundation.core.repository.BaseRepository;
 import com.doublev2v.foundation.core.service.BaseService;
 
+@Transactional
 public abstract class UpdatableService<PK extends Serializable, D extends IdentifiedUpdatable<PK,D>>
 	implements BaseService<PK, D>  {
-	
+
 	private BaseRepository<D, PK> repository;
 	@Override
 	public D add(D d) {

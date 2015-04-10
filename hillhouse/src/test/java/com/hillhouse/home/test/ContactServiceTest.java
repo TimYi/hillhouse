@@ -14,7 +14,7 @@ public class ContactServiceTest {
 	}
 	public static void main(String[] args) {	
 		init();
-		update();
+		add();
 	}
 	private static void add() {
 		Contact contact=new Contact();

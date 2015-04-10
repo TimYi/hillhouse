@@ -64,7 +64,7 @@ public class LocalMediaService implements MediaService {
 		media.setFileName(fileName);
 		media.setPath(path);
 		//将文件保存到本地目录
-		String realFilePath=FilenameUtils.normalize(this.basePath+path, true);
+		String realFilePath=FilenameUtils.normalize(getBasePath()+path, true);
 		File realFile=new File(realFilePath);
 		FileUtils.writeByteArrayToFile(realFile, file.getBytes());
 		repository.saveOrUpdate(media);
@@ -92,7 +92,7 @@ public class LocalMediaService implements MediaService {
 	}
 	
 	protected void deleteFile(MediaContent media) {
-		String path=basePath+media.getPath();
+		String path=getBasePath()+media.getPath();
 		path=FilenameUtils.normalize(path, true);
 		File file=new File(path);
 		file.delete();

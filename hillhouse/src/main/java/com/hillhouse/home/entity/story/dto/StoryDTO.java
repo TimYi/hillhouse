@@ -2,9 +2,9 @@ package com.hillhouse.home.entity.story.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hillhouse.home.base.LanguageModel;
+import com.hillhouse.home.base.LanguagePriorityModel;
 
-public class StoryDTO extends LanguageModel {
+public class StoryDTO extends LanguagePriorityModel {
 	private String title;
 	private String summary;
 	private String content;

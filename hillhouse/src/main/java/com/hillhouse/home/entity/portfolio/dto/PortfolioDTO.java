@@ -2,12 +2,13 @@ package com.hillhouse.home.entity.portfolio.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hillhouse.home.base.LanguageModel;
+import com.hillhouse.home.base.LanguagePriorityModel;
 
-public class PortfolioDTO extends LanguageModel {
+public class PortfolioDTO extends LanguagePriorityModel {
 	private String id;
 	private String url;
 	private String link;
+	private String name;
 	private MultipartFile media;
 	/**
 	 * @return the id
@@ -44,6 +45,13 @@ public class PortfolioDTO extends LanguageModel {
 	 */
 	public void setLink(String link) {
 		this.link = link;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	/**
 	 * @return the meida

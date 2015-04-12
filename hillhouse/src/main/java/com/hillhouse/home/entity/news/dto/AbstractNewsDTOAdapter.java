@@ -32,9 +32,10 @@ public abstract class AbstractNewsDTOAdapter<D extends AbstractNews> extends
 		d.setOrigion(t.getOrigion());
 		d.setSummary(t.getSummary());
 		d.setTitle(t.getTitle());
+		d.setPriority(t.getPriority());
 		MultipartFile file=t.getMedia();
 		try {
-			if(file!=null) {
+			if(file!=null && !file.isEmpty()) {
 				MediaContent media=d.getMedia();
 				if(media==null) {
 					media=getMediaService().save(file);					
@@ -59,6 +60,7 @@ public abstract class AbstractNewsDTOAdapter<D extends AbstractNews> extends
 		t.setSummary(d.getSummary());
 		t.setTitle(d.getTitle());
 		t.setImg(d.getImg());
+		t.setPriority(d.getPriority());
 		return t;
 	}
 }

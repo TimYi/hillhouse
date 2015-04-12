@@ -12,7 +12,9 @@ import com.hillhouse.home.base.LanguagePriorityModel;
 @Entity
 public class Portfolio extends LanguagePriorityModel {
 	private MediaContent media;
+	private String name;
 	private String link;
+	
 	/**
 	 * @return the media
 	 */
@@ -37,6 +39,12 @@ public class Portfolio extends LanguagePriorityModel {
 	 */
 	public void setLink(String link) {
 		this.link = link;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	/**
 	 * @return

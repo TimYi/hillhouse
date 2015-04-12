@@ -2,13 +2,15 @@ package com.hillhouse.home.entity.news.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hillhouse.home.base.LanguageModel;
+import com.hillhouse.home.base.LanguagePriorityModel;
 
-public class NewsDTO extends LanguageModel {
+public class NewsDTO extends LanguagePriorityModel {
 	private MultipartFile media;
 	private String title;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	private String author;
 	private String origion;

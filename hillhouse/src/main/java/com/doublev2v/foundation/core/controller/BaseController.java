@@ -14,7 +14,7 @@ import com.doublev2v.foundation.core.service.BaseService;
  */
 public abstract class BaseController<PK extends Serializable,T extends Identified<PK>> {
 	
-	private BaseService<PK, T> baseService;	
+	protected BaseService<PK, T> baseService;	
 	
 	/**
 	 * @return the baseService

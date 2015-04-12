@@ -33,7 +33,7 @@ public class FigureDTOAdapter extends LanguageMediaDTOAdapter<Figure, FigureDTO>
 		d.setTitle(t.getTitle());
 		MultipartFile file=t.getMedia();
 		try {
-			if(file!=null) {
+			if(file!=null && !file.isEmpty()) {
 				MediaContent media=d.getMedia();
 				if(media==null) {
 					media=getMediaService().save(file);					

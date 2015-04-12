@@ -25,9 +25,11 @@ public class PortfolioDTOAdapter extends LanguageMediaDTOAdapter<Portfolio, Port
 	@Override
 	protected Portfolio preUpdateDO(PortfolioDTO t, Portfolio d) {
 		d.setLink(t.getLink());
+		d.setName(t.getName());
+		d.setPriority(t.getPriority());
 		MultipartFile file=t.getMedia();
 		try {
-			if(file!=null) {
+			if(file!=null && !file.isEmpty()) {
 				MediaContent media=d.getMedia();
 				if(media==null) {
 					media=getMediaService().save(file);					
@@ -47,6 +49,8 @@ public class PortfolioDTOAdapter extends LanguageMediaDTOAdapter<Portfolio, Port
 		t.setId(d.getId());
 		t.setLink(d.getLink());
 		t.setUrl(d.getUrl());
+		t.setName(d.getName());
+		t.setPriority(d.getPriority());
 		return t;
 	}
 }

@@ -27,9 +27,10 @@ public class StoryDTOAdapter extends LanguageMediaDTOAdapter<Story, StoryDTO> {
 		d.setContent(t.getContent());
 		d.setSummary(t.getSummary());
 		d.setTitle(t.getTitle());
+		d.setPriority(t.getPriority());
 		MultipartFile file=t.getMedia();
 		try {
-			if(file!=null) {
+			if(file!=null && !file.isEmpty()) {
 				MediaContent media=d.getMedia();
 				if(media==null) {
 					media=getMediaService().save(file);					
@@ -50,6 +51,7 @@ public class StoryDTOAdapter extends LanguageMediaDTOAdapter<Story, StoryDTO> {
 		t.setContent(d.getContent());
 		t.setSummary(d.getSummary());
 		t.setTitle(d.getTitle());
+		t.setPriority(d.getPriority());
 		t.setImg(d.getImg());
 		return t;
 	}

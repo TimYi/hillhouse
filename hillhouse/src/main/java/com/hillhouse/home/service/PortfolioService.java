@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.doublev2v.foundation.dto.DTOService;
 import com.doublev2v.foundation.media.MediaContent;
 import com.doublev2v.foundation.media.MediaService;
+import com.hillhouse.home.base.LanguageDTOService;
 import com.hillhouse.home.entity.portfolio.Portfolio;
 import com.hillhouse.home.entity.portfolio.dto.PortfolioDTO;
 
 @Transactional
 @Service
-public class PortfolioService extends DTOService<String, Portfolio, PortfolioDTO> {
+public class PortfolioService extends LanguageDTOService<Portfolio, PortfolioDTO> {
 	@Autowired
 	private MediaService mediaService;
 	@Override

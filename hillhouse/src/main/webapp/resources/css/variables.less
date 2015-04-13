@@ -1,0 +1,174 @@
+/**
+*variables.less文件
+*作者：易天明
+*作用：提供能改变网站主题的变量
+*/
+
+// All
+// 网站总体设置
+//==========================================================
+
+/*========================
+字体
+========================*/
+//** 通用字体
+@font-family:Arial,"微软雅黑", Helvetica, sans-serif;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+@font-size-base:          14px;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+@font-size-xs:            ceil((@font-size-base * 0.55)); // ~9px
+
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:        1.428571429; // 20/14
+
+//** By default, this inherits from the `<body>`.
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+@headings-color:          inherit;
+
+
+/*========================
+颜色
+========================*/
+//** 通用字体颜色
+@color:black;
+@color-dark:red;
+@color-dangerous:red;
+
+//** 常用北京颜色
+@color-transparent-white:rgba(255, 255, 255, 0.2);
+@color-sand-white:rgba(255, 255, 255, 0.4);
+@color-transparent-grey:hsla(178, 4%, 48%, 0.4);
+@color-sand-grey:rgba(93, 93, 93, 0.5);
+
+
+/*========================
+位置
+========================*/
+
+
+/*========================
+长度和宽度
+========================*/
+//** 页面最大宽度
+@max-width:640px;
+
+/*=========================
+背景
+=========================*/
+//** 通用背景颜色
+@bg-color:#434343;
+
+
+/*=========================
+边距
+=========================*/
+//** 常用两侧边距
+@margin-side:3%;
+@padding-side:@margin-side;
+
+/*=========================
+边框
+=========================*/
+//** 通用边框设置
+@border-width:      1px;
+@border-color:      @color;
+@border-style:      solid;
+//**修饰性边框弧度
+@radius-decorate:   7px;
+@radius-small:      3px;
+//**用于突出显示的边框
+@border-dangerous-width:    2px;
+@border-dangerous-color:    red;
+@border-dangerous-style:    solid;
+
+/*=========================
+过渡效果
+=========================*/
+
+
+
+// Link
+// <a>标签设置
+//==========================================================
+
+//** 通用链接设置
+@link-color:            @color;
+@link-hover-color:      pink;
+@link-active-color:     red;
+
+//** 对比色链接设置
+@link-color-contrast:   @color-dark;
+@link-hover-contrast:   spin(@link-hover-color,180);
+@link-active-contrast:  spin(@link-active-color,180);
+
+
+// Header
+// 头部导航设置
+//==========================================================
+//** 头部导航栏高度
+@header-height:48px;
+//** 头部导航栏背景色
+@header-bg-color:@bg-color;
+
+
+// Footer
+// 尾部导航设置
+//==========================================================
+//** 底部导航高度
+@footer-height:53px;
+@footer-home-height:68.5px;
+
+//** 底部导航颜色
+@footer-color:@bg-color;
+
+
+
+// Button
+// 按钮设置
+//==========================================================
+
+//## 按钮字体，背景和边框颜色
+//** 一般按钮
+@button-bg-color:       transparent;
+@button-color:          @color;
+@button-border-color:   @border-color;
+
+//**突出显示的按钮
+@button-color-danger:   @color;
+@button-bg-danger:      hsl(9, 100%, 52%);
+@button-border-danger:  @button-bg-danger;
+
+@button-height:         2em;
+
+//## 按钮字体大小
+@button-font-size:      @font-size-base;
+@button-font-small:     @font-size-small;
+@button-font-large:     @font-size-large;
+
+//## 按钮长度
+@button-width-long:     9em;
+@button-width-middle:   7em;
+@button-width-short:    5em;
+
+
+// Form
+// 表单设置
+//==========================================================
+
+@input-height:1.4em;
+@input-padding:(@input-height+(-1em))/2;

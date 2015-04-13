@@ -1,5 +1,7 @@
 package com.hillhouse.home.base;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -13,6 +15,12 @@ public class LanguageModelRepository<T extends LanguageModel> extends BaseModelR
 		restrictLanguage(criteria, language);
 		addOrder(criteria);
 		return getPagedList(criteria, pageNo, pageSize);
+	}
+	public List<T> getAll(Language language) {
+		Criteria criteria=getCriteria();
+		restrictLanguage(criteria, language);
+		addOrder(criteria);
+		return getAll(criteria);
 	}
 	protected Criteria restrictLanguage(Criteria criteria, Language language) {
 		criteria.add(Restrictions.eq("language", language));

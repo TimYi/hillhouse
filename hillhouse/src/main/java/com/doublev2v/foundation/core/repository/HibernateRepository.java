@@ -109,6 +109,7 @@ public abstract class HibernateRepository<T,PK extends Serializable> implements 
 	 */
 	public List<T> getAll() {
 		Criteria criteria=getCriteria().setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+		criteria=addOrder(criteria);
 		return getAll(criteria);
 	}
 	

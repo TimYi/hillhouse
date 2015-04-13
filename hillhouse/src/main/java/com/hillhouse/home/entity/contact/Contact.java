@@ -1,5 +1,6 @@
 package com.hillhouse.home.entity.contact;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import com.doublev2v.foundation.core.entity.UUIDBaseModel;
@@ -51,6 +52,7 @@ public class Contact extends UUIDBaseModel implements IdentifiedUpdatable<String
 	/**
 	 * @return the message
 	 */
+	@Column(length=1000)
 	public String getMessage() {
 		return message;
 	}

@@ -1,5 +1,7 @@
 package com.hillhouse.home.base;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,5 +28,11 @@ public class LanguageDTOService<D extends LanguageModel, T extends Identified<St
 		PagedList<D> dList=getRepository().getPagedList(pageNo, pageSize, language);
 		PagedList<T> tList=getAdapter().convertPagedList(dList);
 		return tList;
+	}
+	
+	public List<T> getAll(Language language) {
+		List<D> list=getRepository().getAll();
+		List<T> result=getAdapter().convertList(list);
+		return result;
 	}
 }

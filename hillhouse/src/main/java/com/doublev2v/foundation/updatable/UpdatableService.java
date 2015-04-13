@@ -1,6 +1,7 @@
 package com.doublev2v.foundation.updatable;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +44,11 @@ public abstract class UpdatableService<PK extends Serializable, D extends Identi
 	public void delete(PK id) {
 		getRepository().delete(id);
 	}
+	
+	@Override
+	public List<D> getAll() {
+		return getRepository().getAll();
+	}
 
 	/**
 	 * @return the repository
@@ -57,5 +63,5 @@ public abstract class UpdatableService<PK extends Serializable, D extends Identi
 	@Autowired
 	public void setRepository(BaseRepository<D, PK> repository) {
 		this.repository = repository;
-	}
+	}	
 }

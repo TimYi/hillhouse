@@ -1,6 +1,7 @@
 package com.hillhouse.home.entity.story;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
@@ -43,6 +44,7 @@ public class Story extends LanguagePriorityModel {
 	/**
 	 * @return the summary
 	 */
+	@Column(length=2000)
 	public String getSummary() {
 		return summary;
 	}
@@ -55,6 +57,7 @@ public class Story extends LanguagePriorityModel {
 	/**
 	 * @return the content
 	 */
+	@Column(length=4000)
 	public String getContent() {
 		return content;
 	}

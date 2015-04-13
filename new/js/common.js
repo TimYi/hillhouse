@@ -1,12 +1,48 @@
 
+$(function(){ 
+    if($(".hm").size()>0) {
+       if(!isFresh()) {
+            home();
+        }
+    }
+    //将Contact表单改为ajax提交
+    ("#contact").submit(function(e) {        
+        var form=$(this);
+        var url=form.attr("action");
+        $.ajax({
+               type: "POST",
+               url: url,
+               data: form.serialize(), // serializes the form's elements.
+               success: function(data) {
+                   contact();
+               },
+                error: function() {
+                    contact();
+                    throw "错误！";
+                }
+             });
+
+        e.preventDefault();
+    });
+});
+
 function contact() {
     toggle(".contact");
     var rowpos = $('#contact').position();
     $(document).scrollTop(rowpos.top);
 }
+
 function home() {
     toggle("#hm-slide");
     toggle("#hm");
+}
+
+function isFresh() {
+    if($.cookie("login")==null) {
+        $.cookie("login","y");
+        return true;
+    }
+    return false;
 }
 /**========================
 *toggle函数，执行展开收起逻辑

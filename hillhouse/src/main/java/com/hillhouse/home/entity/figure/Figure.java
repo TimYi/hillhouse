@@ -1,6 +1,7 @@
 package com.hillhouse.home.entity.figure;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
@@ -82,6 +83,7 @@ public class Figure extends LanguagePriorityModel {
 	/**
 	 * @return the summary
 	 */
+	@Column(length=2000)
 	public String getSummary() {
 		return summary;
 	}
@@ -94,6 +96,7 @@ public class Figure extends LanguagePriorityModel {
 	/**
 	 * @return the story
 	 */
+	@Column(length=4000)
 	public String getStory() {
 		return story;
 	}

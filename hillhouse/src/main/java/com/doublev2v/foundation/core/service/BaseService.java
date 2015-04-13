@@ -1,6 +1,7 @@
 package com.doublev2v.foundation.core.service;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.doublev2v.foundation.core.model.Identified;
 import com.doublev2v.foundation.core.model.PagedList;
@@ -36,4 +37,9 @@ public interface BaseService<PK extends Serializable,T extends Identified<PK>> {
 	 * @param id
 	 */
 	void delete(PK id);
+	/**
+	 * 获取全部实体
+	 * @return
+	 */
+	List<T> getAll();
 }

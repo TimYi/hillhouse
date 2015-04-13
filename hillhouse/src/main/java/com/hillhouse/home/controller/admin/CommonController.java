@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.doublev2v.foundation.core.model.PagedList;
 import com.hillhouse.home.base.LanguageDTOService;
 import com.hillhouse.home.base.LanguageModel;
 import com.hillhouse.home.base.LanguageModel.Language;
@@ -44,8 +43,7 @@ public abstract class CommonController
 	 */
 	@RequestMapping("")
 	public ModelAndView list() {
-		PagedList<T> tList=service.getPagedList(1, 10000, getLanguage());
-		List<T> ts=tList.getResult();
+		List<T> ts=service.getAll(getLanguage());
 		String viewPath=getBasePath()+"/list";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("ts", ts);

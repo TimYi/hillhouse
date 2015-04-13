@@ -1,0 +1,90 @@
+/*
+*common.less文件
+*作者：易天明
+*作用：提供组件相关接口，不提供任何能直接使用的class。相比base层，这一层是组件相关的。
+*说明：这一层要求稳定灵活，能应对变化。
+*/
+@import "base-mixins.less";
+
+//** 连接基本样式
+// link variants
+// 定义连接在link, hover, active, visited 几种情况下的样式
+.link(@color; @hover-color; @active-color; @visited-color:@color;) {
+    &:link {
+        color: @color;
+        text-decoration: none;
+    }   
+    &:visited {
+        color: @visited-color;
+    }
+    &:hover {
+        color: @hover-color;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    &:active {
+        color: @active-color;
+    }    
+}
+
+
+//** button基本样式
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @color;
+    background-color: darken(@background, 10%);
+    border-color: darken(@border, 12%);
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+}
+
+.button-bg(@background) {
+    background-color: @background;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(@background, 10%);
+    }
+}
+
+.button-height(@height; @border-radius:@height/2) {
+    height: @height;
+    line-height: @height;
+    border-radius: @border-radius;
+}
+
+// Button sizes
+.button-size(@font-size; @height; @border-radius:@height/2) {
+    font-size: @font-size;
+    .button-height(@height; @border-radius)
+}
+
+//base settings of button
+.button() {
+    display: block;
+    box-sizing: content-box;
+}
+
+
+

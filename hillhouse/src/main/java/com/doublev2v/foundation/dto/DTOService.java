@@ -1,6 +1,7 @@
 package com.doublev2v.foundation.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,6 +47,13 @@ public abstract class DTOService<PK extends Serializable,D,T extends Identified<
 	 */
 	public void delete(PK id) {
 		getRepository().delete(id);
+	}
+	
+	@Override
+	public List<T> getAll() {
+		List<D> dList=getRepository().getAll();
+		List<T> tList=adapter.convertList(dList);
+		return tList;
 	}
 	
 	/**

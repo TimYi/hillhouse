@@ -1,0 +1,315 @@
+/*
+*common-class.less文件
+*作者：易天明
+*作用：依据variables.less定义的变量，提供组件级样式。
+*/
+@import "base.less";
+@import "common-mixins.less";
+
+//************************************************
+//基础样式冲定义部分
+//************************************************
+.ch {
+    body,h1,h2,h3,h4,h5,h6 {
+        font-family: "微软雅黑",Arial;
+    }
+}
+.ch {
+    font-family: "微软雅黑",Arial;
+}
+.en {
+    font-family: Arial,"微软雅黑";
+}
+a,.link {
+    .link(black,red,red);
+    &.underline {
+        .underline;
+    }
+}
+
+//*************************************************
+//通用common部分
+//*************************************************
+//基本容器
+.container{width: 850px;margin-left: auto; margin-right: auto;}
+//header部分
+.header {
+    width: 100%;
+    .container;
+    .clear-fix;
+}
+.logo {float: left;width: 100px;height: 100px;background:url(../image/logo.jpg) no-repeat;margin: 0;cursor: pointer;}
+.header {
+    ul{
+        height:100px;margin-left: 1em;
+        li {
+            float:left;height:100%;margin:0 1em;
+            a{
+                height:90px;border-top:solid 10px transparent;line-height: 80px;display: block;
+                &.active {
+                    border-top-color: red;
+                }
+            }            
+        }
+    }
+}
+//主体部分
+.main_pic{width: 100%;height: 60px; margin: 0; background:url(../image/header.jpg);background-size:  100% 100%;
+background-repeat: round;}
+//面包屑导航
+.crumb {
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+}
+
+//footer部分
+.footer{
+    width:100%;height:48px;line-height: 48px; background:#3e3131;color: white;
+}
+//contact us 部分
+.contact {
+    background-color: gainsboro;
+    display: none;
+}
+.contact-us {
+    box-sizing: border-box;
+    float: left;
+    width: 70%;
+    background-color: white;
+    padding-left: 2em;
+    padding-right: 1em;
+    padding-top: 1.4em;
+    padding-bottom: 1.2em;
+    label {
+        display:block;
+        margin-top: 1em;
+    }
+    input[type="text"],input[type="email"],textarea {
+        width: 94%;
+        background-color: #ebe7e7;
+        border: none;
+        padding: 0.2em 0;
+    }
+    textarea {
+        resize: none;
+        width: 100%;
+        height: 9.8em;
+        padding: 0;
+    }
+    button {
+        background-color: #241c1c;
+        color: white;
+        width:14em;
+        border: none;
+        padding: 0.5em 0;
+        margin-top: 1em;
+        cursor: pointer;
+    }
+}
+.contact-content {
+    width: 50%;
+    float: left;
+}
+.contact-description {
+    box-sizing: border-box;
+    float: left;
+    width: 30%;
+    padding-left: 2em;
+    padding-right: 1em;
+}
+//列表索引
+.list-index {
+    a {
+        @length:1.5em;
+        display: inline-block;
+        width: @length;
+        height: @length;
+        line-height: @length;
+        text-align: center;
+        &.active {
+            box-shadow: -2px 1px 1px #888888;
+        }
+    }
+}
+
+//***************************************************
+//具体页面相关的app部分
+//***************************************************
+
+//*************************************************
+//.hm 主页部分单独css设计
+//*************************************************
+.hm {
+    height: 100%;
+    body {
+        height: 100%;
+    }
+}
+.hm-peoples {
+    float: left;
+    box-sizing: border-box;
+    //妈的，就不能写三分之一吗？！！
+    width: 33.333333333333333333333333333333333333333%;
+    padding-right: 2em;
+    pre {
+        line-height: 1.2em;
+        max-height: 5.9em;
+        overflow: hidden;
+    }
+}
+#hm-slide {
+    color: white;
+    height: 100%;
+    background:url(../image/home.jpg);background-size: 100% 100%;
+background-repeat: round;
+    .active {
+        border-top-color: transparent;
+        color: black;
+    }
+}
+.hm-title {
+    font-size: 60px;
+    margin: 1em 1em;
+}
+.hm-learn-more {
+    padding: 0.6em;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: white;
+}
+.hm-triangle {
+    display: block;
+    margin: 1em auto 0 auto;
+    padding-bottom: 1em;
+    height: 0;
+    width: 0;
+    border-top: 1em solid white;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    -webkit-transition: all 0.6s ease-in-out;
+     -moz-transition: all 0.6s ease-in-out;
+     -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+.hm #body {
+    display: none;
+    -webkit-transition: all 1s ease-in-out;
+     -moz-transition: all 1s ease-in-out;
+     -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;    
+}
+//*************************************************
+//.es Entrepreneur Stories部分单独css设计
+//*************************************************
+@figure-height:15em;
+@es-color:#f2ebe2;
+.es-figure {
+    position: relative;
+    background-color: @es-color;
+    height: @figure-height;
+}
+.es-figure-image {
+    height: @figure-height;
+    width: @figure-height;
+}
+.es-figure-description {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-left-style: solid;
+    border-left-color: transparent;
+    border-left-width: 14em;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+.es-list {
+    width: 22%;
+    float: left;
+    img {
+        width: 100%;
+        height: auto;
+    }
+    background-color: @es-color;
+    margin-bottom: 2em;
+}
+.es-margin {
+    margin-left: 4%;
+}
+.es-content {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+//*************************************************
+//.pf Portfolio Companies部分单独css设计
+//*************************************************
+.pf-lists {
+    .clear-fix;
+    margin-bottom: 3em;
+    >div {
+        box-sizing: border-box;
+        width: 25%;
+        margin-top: 2em;
+        text-align: center;
+        float: left;
+        background-color: @es-color;
+        background-clip: content-box;
+        background-origin: content-box;
+        border-right: solid 2em transparent;
+        height: 10em;
+        img {
+            vertical-align: middle;
+        }
+    }
+}
+//*************************************************
+//.fg figure 部分单独css设计
+//*************************************************
+.fg-content {
+    .clear-fix;
+    margin-top: 2em;
+    >img {
+        width: 25%;
+        height: auto;
+        .fl;
+    }
+    >div {
+        width: 40%;
+        margin-left: 3em;
+        .fl;
+    }
+}
+//*************************************************
+//.new news 部分单独css设计
+//*************************************************
+.new-list {
+    >div {
+        float: left;
+        box-sizing: border-box;
+        margin-top: 2em;
+        width: 50%;
+        padding-right: 2em;
+        >img {
+            float: left;
+            width: 8%;
+        }
+        >div {
+            float: left;
+            width: 88%;
+            margin-left: 4%;
+            h4 {
+                height: 2.5em;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

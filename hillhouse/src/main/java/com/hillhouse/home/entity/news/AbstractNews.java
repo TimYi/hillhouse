@@ -95,6 +95,7 @@ public class AbstractNews extends LanguagePriorityModel {
 	/**
 	 * @return the summary
 	 */
+	@Column(length=2000)
 	public String getSummary() {
 		return summary;
 	}

@@ -51,6 +51,21 @@ public abstract class AbstractDTOAdapter<PK extends Serializable,D,T extends Ide
 	}
 	
 	@Override
+	public List<T> convertList(List<D> dList) {
+		List<T> result;
+		if(dList==null) {
+			result=null;
+		} else {
+			result=new ArrayList<T>();
+			for (D d : dList) {
+				T t=createDTO(d);
+				result.add(t);
+			}
+		}
+		return result;
+	}
+	
+	@Override
 	public final D createDO(T t) {
 		D d=preCreateDO(t);
 		return postProcessDO(t, d);

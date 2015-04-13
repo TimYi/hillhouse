@@ -31,7 +31,7 @@ public class LanguageDTOService<D extends LanguageModel, T extends Identified<St
 	}
 	
 	public List<T> getAll(Language language) {
-		List<D> list=getRepository().getAll();
+		List<D> list=getRepository().getAll(language);
 		List<T> result=getAdapter().convertList(list);
 		return result;
 	}

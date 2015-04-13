@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib  prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <my:base page="news">
 <jsp:body>
@@ -11,15 +12,15 @@
     </div>
     <div class="container clear-fix">
         <h2 class="bold">Features</h2>
-        <c:forEach items="${news.result }" var="new" varStatus="status">
+        <c:forEach items="${news.result }" var="n" varStatus="status">
         	<div class="new-list">
 	            <div>
-	                <img src="${new.img }">
+	                <img src="${n.img }">
 	                <div>
-	                    <h4>${new.title }</h4>
-	                    <p class="mgt-1">${new.date } | ${new.author } | ${new.origion }</p>
-	                    <pre class="mgt-1">${new.summary }</pre>
-	                    <a href="${new.link }" class="mgt-1 block">read the artical at ${new.linkShorthand } <span class="color-dangerous">></span></a>
+	                    <h4>${n.title }</h4>
+	                    <p class="mgt-1"><fmt:formatDate value="${n.date }" pattern="yyyy-MM-dd"/> | ${n.author } | ${n.origion }</p>
+	                    <pre class="mgt-1">${n.summary }</pre>
+	                    <a href="${n.link }" target="_blank" class="mgt-1 block">read the artical at ${n.linkShorthand } <span class="color-dangerous">></span></a>
 	                </div>
 	            </div>            
 	        </div>
@@ -29,12 +30,12 @@
         </c:forEach>
         <div class="clear"></div>
         <div class="list-index mgt-4 mgb-2">
-        	<c:forEach begin="1" end="${news.totalPage }" varStatus="status">
-        		<c:if test="${status.count eq news.currentPage }" var="isActive">
-        			<a href="<c:url value='/news?pageNo=${news.currentPage }&pageSize=8'/>" class="active">${status.count }</a>
+        	<c:forEach begin="1" end="${news.totalPages }" varStatus="status">
+        		<c:if test="${status.count eq news.pageNo }" var="isActive">
+        			<a href="<c:url value='/news?pageNo=${news.pageNo }&pageSize=8'/>" class="active">${status.count }</a>
         		</c:if>
         		<c:if test="${!isActive }">
-        			<a href="<c:url value='/news?pageNo=${news.currentPage }&pageSize=8'/>">${status.count }</a>
+        			<a href="<c:url value='/news?pageNo=${status.count }&pageSize=8'/>">${status.count }</a>
         		</c:if>
         	</c:forEach>
         </div>

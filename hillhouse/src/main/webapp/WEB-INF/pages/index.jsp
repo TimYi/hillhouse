@@ -43,7 +43,7 @@ Hillhouse is a long-term fundamental equity investor with a global mandate.  Ind
                 <p class="inline mgl-1">|</p>
                 <a class="mgl-1">${figures[0].title }</a>
                 <pre class="mgt-1">${figures[0].summary }</pre>
-            	<a class="underline mgt-1 block" href="<c:url value='/figure/${figures[0].id }'/>">Full Profile <span class="color-dangerous">></span></a>                                
+            	<a class="underline mgt-1 block" href="<c:url value='/figures/${figures[0].id }'/>">Full Profile <span class="color-dangerous">></span></a>                                
             </div>
         </div>
 	</div>
@@ -55,7 +55,7 @@ Hillhouse is a long-term fundamental equity investor with a global mandate.  Ind
 	                <p class="mgl-1 inline">|</p>
 	                <a class="mgl-1">${figure.title }</a>
 	                <pre class="mgt-1">${figure.summary }</pre>
-	                <a class="underline mgt-1 block" href="<c:url value='/figure/${figure.id }'/>">Full Profile <span class="color-dangerous">></span></a>                
+	                <a class="underline mgt-1 block" href="<c:url value='/figures/${figure.id }'/>">Full Profile <span class="color-dangerous">></span></a>                
 		        </div>
 			</c:if>			
 		</c:forEach>

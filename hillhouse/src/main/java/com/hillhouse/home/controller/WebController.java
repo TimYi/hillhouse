@@ -24,6 +24,7 @@ import com.hillhouse.home.service.PortfolioService;
 import com.hillhouse.home.service.StoryService;
 
 @Controller
+@RequestMapping("/")
 public class WebController {
 	@Autowired
 	private ContactService contactService;
@@ -42,7 +43,7 @@ public class WebController {
 	
 	protected String basePath="";
 	
-	@RequestMapping("/")
+	@RequestMapping("")
 	public ModelAndView aboutUs() {
 		List<FigureDTO> figures=figureService.getAll(language);
 		String viewPath=basePath+"index";
@@ -51,7 +52,7 @@ public class WebController {
 		return view;
 	}
 	
-	@RequestMapping("/storys")
+	@RequestMapping("storys")
 	public ModelAndView storys() {
 		List<StoryDTO> storys=storyService.getAll(language);
 		String viewPath=basePath+"storys";
@@ -80,14 +81,17 @@ public class WebController {
 	
 	@RequestMapping("news")
 	public ModelAndView news(Integer pageNo, Integer pageSize) {
-		String viewPath=basePath+"portfolionews";
+		if(pageSize==null) {
+			pageSize=8;
+		}
+		String viewPath=basePath+"news";
 		PagedList<NewsDTO> news=newsService.getPagedList(pageNo, pageSize, language);
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("news", news);
 		return view;
 	}
 	
-	@RequestMapping("figure/{id}")
+	@RequestMapping("figures/{id}")
 	public ModelAndView figure(@PathVariable String id) {
 		FigureDTO figure=figureService.get(id);
 		String viewPath=basePath+"figure";
@@ -96,7 +100,7 @@ public class WebController {
 		return view;
 	}
 	
-	@RequestMapping("story/{id}")
+	@RequestMapping("storys/{id}")
 	public ModelAndView story(@PathVariable String id) {
 		StoryDTO story=storyService.get(id);
 		String viewPath=basePath+"story";

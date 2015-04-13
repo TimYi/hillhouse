@@ -22,40 +22,70 @@
 	<jsp:invoke fragment="beforeHeader"/>
 	<div id="body">
 	<header class="header">
-        <div class="logo" onclick="<c:url value='/'/>"></div>
+        <div class="logo" onclick="window.location.href=<c:url value='/'/>"></div>
         <ul class="fl">
+        <c:if test="${lang ne 'ch' }">
         	<c:choose>
 				<c:when test="${page eq 'aboutus' }">
 					<li class="bold"><a class="mgl-2 active">ABOUT US</a></li>
 		            <li class="bold"><a href="<c:url value='/storys'/>">ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
-		            <li class="bold"><a href="<c:url value='news'/>">NEWS</a></li>
+		            <li class="bold"><a href="<c:url value='/news'/>">NEWS</a></li>
 				</c:when>
 				<c:when test="${page eq 'storys' }">
 					<li class="bold"><a href="<c:url value='/'/>" class="mgl-2">ABOUT US</a></li>
 		            <li class="bold"><a class="active">ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
-		            <li class="bold"><a href="<c:url value='news'/>">NEWS</a></li>
+		            <li class="bold"><a href="<c:url value='/news'/>">NEWS</a></li>
 				</c:when>
 				<c:when test="${page eq 'portfolio' }">
 					<li class="bold"><a href="<c:url value='/'/>" class="mgl-2">ABOUT US</a></li>
-		            <li class="bold"><a href="<c:url value='/storys'/>" class="active">ENTREPRENEUR STORIES</a></li>
+		            <li class="bold"><a href="<c:url value='/storys'/>" >ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a class="active">PORTFOLIO</a></li>
-		            <li class="bold"><a href="<c:url value='news'/>">NEWS</a></li>
+		            <li class="bold"><a href="<c:url value='/news'/>">NEWS</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="bold"><a href="<c:url value='/'/>" class="mgl-2">ABOUT US</a></li>
-		            <li class="bold"><a href="<c:url value='/storys'/>" class="active">ENTREPRENEUR STORIES</a></li>
+		            <li class="bold"><a href="<c:url value='/storys'/>">ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
 		            <li class="bold"><a class="active">NEWS</a></li>
 				</c:otherwise>
 			</c:choose>
+		</c:if>
+		<c:if test="${lang eq 'ch' }">
+        	<c:choose>
+				<c:when test="${page eq 'aboutus' }">
+					<li class="bold"><a class="mgl-2 active">关于我们</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/storys'/>">企业故事</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/portfolios'/>">合作伙伴</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/news'/>">最新消息</a></li>
+				</c:when>
+				<c:when test="${page eq 'storys' }">
+					<li class="bold"><a href="<c:url value='/ch'/>" class="mgl-2">关于我们</a></li>
+		            <li class="bold"><a class="active">企业故事</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/portfolios'/>">合作伙伴</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/news'/>">最新消息</a></li>
+				</c:when>
+				<c:when test="${page eq 'portfolio' }">
+					<li class="bold"><a href="<c:url value='/ch'/>" class="mgl-2">关于我们</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/storys'/>" >企业故事</a></li>
+		            <li class="bold"><a class="active">合作伙伴</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/news'/>">最新消息</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="bold"><a href="<c:url value='/ch'/>" class="mgl-2">关于我们</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/storys'/>">企业故事</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/portfolios'/>">合作伙伴</a></li>
+		            <li class="bold"><a class="active">最新消息</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:if>
         </ul>
         <ul class="fr">
         	<c:choose>
 				<c:when test="${lang eq 'ch' }">
 					<li class="bold"><a href="<c:url value='/'/>">En</a></li>
-            		<li class="bold ch"><a "<c:url value='/ch'/>" class="active">中文</a></li>
+            		<li class="bold ch"><a class="active">中文</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="bold en"><a href="<c:url value='/'/>" class="active">En</a></li>

@@ -27,6 +27,7 @@
 	        	<c:when test="${status.index eq 0 }">
 	        	</c:when>
 	        	<c:when test="${status.index % 4 eq 1 }">
+	        		<div class="clear"></div>
 	        		<div class="es-list">
 		                <img src="${story.img }" />		
 		                <div class="es-content">

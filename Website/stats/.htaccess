@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName "hillhousecap.com Statistics"
-AuthUserFile /var/chroot/home/content/10/7250810/html/stats/.statspwd
-Require valid-user
-DirectoryIndex index.html

@@ -1,16 +1,12 @@
 package com.hillhouse.utils;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
 public class HtmlGenerator {
@@ -46,14 +42,4 @@ public class HtmlGenerator {
   
         return sb.toString();  
     }  
-  
-    /** 
-     * Test Code 
-     * Target : http://www.google.cn/ 
-     */  
-    public static void main(String[] args) throws IOException {  
-        String src = HtmlGenerator.generate("http://112.74.75.137/hillhouse");  
-        File file = new File("E:" + File.separator +"StaticWebsite" + File.separator + "index.html");  
-        FileUtils.writeStringToFile(file, src, "UTF-8");  
-    } 
 }

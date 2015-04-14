@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -155,11 +157,21 @@ public class StaticWebsiteGenerator {
 	}
 	
 	public static void main(String[] args) {
+		Configuration configuration;
+		try {
+			configuration=new PropertiesConfiguration("app.properties");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
 		StaticWebsiteGenerator generator=new StaticWebsiteGenerator();
-		generator.basePath="E://StaticWebsite";
-		generator.resolve("http://localhost:8080","http://localhost:8080/hillhouse/");
+		generator.basePath=configuration.getString("basePath");
+		String siteUrl=configuration.getString("siteUrl");
+		String appUrl=configuration.getString("appUrl");
+		generator.resolve(siteUrl,appUrl);
+		/*
 		for (String link : generator.solvedLinks) {
 			System.out.println(link);
-		}
+		}*/
 	}
 }

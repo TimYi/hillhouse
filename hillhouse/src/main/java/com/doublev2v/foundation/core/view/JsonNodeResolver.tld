@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"  
+    version="2.0">  
+    <tlib-version>2.0</tlib-version>
+    <short-name>dv</short-name>  
+    <uri>http://www.doublev2v.com/taglib/jsonNode</uri> 
+     <function>  
+     	<description>get Iterator JsonNode</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>iterate</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            java.util.Iterator iterate(com.fasterxml.jackson.databind.JsonNode,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:get(node,key)}</example>
+    </function> 
+     <function>  
+     	<description>get JsonNode</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>get</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            com.fasterxml.jackson.databind.JsonNode get(com.fasterxml.jackson.databind.JsonNode,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:get(node,key)}</example>
+    </function> 
+    <function>  
+     	<description>get JsonNode value</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>getString</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            java.lang.String getString(com.fasterxml.jackson.databind.JsonNode,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:getString(node,key)}</example>
+    </function>
+    <function>  
+     	<description>get JsonArray item</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>index</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            com.fasterxml.jackson.databind.JsonNode get(com.fasterxml.jackson.databind.JsonNode,java.lang.Integer,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:index(node,index,key)}</example>
+    </function> 
+    <function>  
+     	<description>find JsonNode</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>find</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            com.fasterxml.jackson.databind.JsonNode find(com.fasterxml.jackson.databind.JsonNode,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:find(node,key)}</example>
+    </function> 
+    <function>  
+     	<description>find JsonNode value</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>findString</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            java.lang.String findString(com.fasterxml.jackson.databind.JsonNode,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:findString(node,key)}</example>
+    </function>
+    <function>  
+     	<description>get JsonArray item as string</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>indexString</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            com.fasterxml.jackson.databind.JsonNode getString(com.fasterxml.jackson.databind.JsonNode,java.lang.Integer,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:index(node,index,key)}</example>
+    </function>  
+    <function>  
+     	<description>check if one field is all empty</description>
+     	<!-- 函数名  → 注意：此处的名字和JSP页面上名字一样！-->
+        <name>isEmpty</name>  
+        <function-class>com.doublev2v.foundation.core.view.JsonNodeResolver</function-class>
+        <!-- 函数参数说明 -->
+        <function-signature>
+            boolean isEmpty(com.fasterxml.jackson.databind.JsonNode,java.lang.String)
+        </function-signature>
+        <!-- 例子 -->
+        <example>${dv:isEmpty(node,key)}</example>
+    </function>  
+</taglib>  

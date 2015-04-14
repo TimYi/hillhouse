@@ -6,7 +6,7 @@
 <my:base page="storys" lang="ch" hmClass="ch">
 <jsp:body>
 	<div class="crumb container">
-        <a href="<c:url value='/'/>" class="color-dangerous">主页</a>
+        <a href="<c:url value='/ch'/>" class="color-dangerous">主页</a>
         <span>></span>
         <a>企业故事</a>
     </div>

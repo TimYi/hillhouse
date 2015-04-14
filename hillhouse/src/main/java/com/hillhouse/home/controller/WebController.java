@@ -70,8 +70,11 @@ public class WebController {
 		return view;
 	}
 	
-	@RequestMapping("portfolionews")
-	public ModelAndView portfolionews(Integer pageNo, Integer pageSize) {
+	@RequestMapping("portfolionews/{pageNo}")
+	public ModelAndView portfolionews(@PathVariable Integer pageNo, Integer pageSize) {
+		if(pageSize==null) {
+			pageSize=8;
+		}
 		String viewPath=basePath+"portfolionews";
 		PagedList<NewsDTO> news=portfolioNewsService.getPagedList(pageNo, pageSize, language);
 		ModelAndView view=new ModelAndView(viewPath);
@@ -79,8 +82,8 @@ public class WebController {
 		return view;
 	}
 	
-	@RequestMapping("news")
-	public ModelAndView news(Integer pageNo, Integer pageSize) {
+	@RequestMapping("news/{pageNo}")
+	public ModelAndView news(@PathVariable Integer pageNo, Integer pageSize) {
 		if(pageSize==null) {
 			pageSize=8;
 		}

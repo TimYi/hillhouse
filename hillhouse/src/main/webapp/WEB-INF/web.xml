@@ -30,14 +30,12 @@
     <servlet-name>spring-mvc</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  <!-- 
+   
   <listener>  
         <listener-class>  
             com.hillhouse.home.listener.Less4jCompileListener  
         </listener-class>  
    </listener>
-    -->
   
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

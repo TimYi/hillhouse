@@ -5,7 +5,7 @@
 <my:base page="storys" lang="ch" hmClass="ch">
 <jsp:body>
 	<div class="crumb container">
-        <a href="<c:url value='/'/>" class="color-dangerous">主页</a>
+        <a href="<c:url value='/ch'/>" class="color-dangerous">主页</a>
         <span>></span>
         <a>企业故事</a>
     </div>
@@ -16,7 +16,7 @@
             <div class="es-figure-description">
                 <pre class="h2 mgt-1">${storys[0].summary }</pre>
                 <pre class="mgt-1">${storys[0].content }</pre>
-                <a href="<c:url value='/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
+                <a href="<c:url value='/ch/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
                     Full interview <span class="color-dangerous">></span>
                 </a>
             </div>
@@ -32,7 +32,7 @@
 		                <div class="es-content">
 		                    <h3>${story.summary }</h3>
 		                    <pre class="mgt-2">${story.content }</pre>
-		                    <a href="<c:url value='/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
+		                    <a href="<c:url value='/ch/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
 		                        Full interview <span class="color-dangerous">></span>
 		                    </a>
 		                </div>
@@ -44,7 +44,7 @@
 		                <div class="es-content">
 		                    <h3>${story.summary }</h3>
 		                    <pre class="mgt-2">${story.content }</pre>
-		                    <a href="<c:url value='/story/${storys[0].id }'/>" class="text-right mgt-1 block">
+		                    <a href="<c:url value='/ch/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
 		                        Full interview <span class="color-dangerous">></span>
 		                    </a>
 		                </div>

@@ -32,10 +32,10 @@
         <div class="list-index mgt-4 mgb-2">
         	<c:forEach begin="1" end="${news.totalPages }" varStatus="status">
         		<c:if test="${status.count eq news.pageNo }" var="isActive">
-        			<a href="<c:url value='/news?pageNo=${news.pageNo }&pageSize=8'/>" class="active">${status.count }</a>
+        			<a href="<c:url value='/news/${news.pageNo }'/>" class="active">${status.count }</a>
         		</c:if>
         		<c:if test="${!isActive }">
-        			<a href="<c:url value='/news?pageNo=${status.count }&pageSize=8'/>">${status.count }</a>
+        			<a href="<c:url value='/news/${status.count }'/>">${status.count }</a>
         		</c:if>
         	</c:forEach>
         </div>

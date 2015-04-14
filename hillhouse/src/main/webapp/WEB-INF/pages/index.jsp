@@ -10,7 +10,7 @@
             <ul class="fl">
                 <li class="bold"><a class="mgl-2">ABOUT US</a></li>
                 <li class="bold"><a href="<c:url value='/storys'/>">ENTREPRENEUR STORIES</a></li>
-		        <li class="bold"><a href="<c:url value='/portfolio'/>">PORTFOLIO</a></li>
+		        <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
 		        <li class="bold"><a href="<c:url value='news'/>">NEWS</a></li>
             </ul>
             <ul class="fr">

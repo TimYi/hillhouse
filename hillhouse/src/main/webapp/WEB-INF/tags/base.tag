@@ -16,7 +16,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Hillhouse Capital Group</title>
-    <link href="<c:url value='/resources/css/common.less'/>" rel="stylesheet/less">
+    <link href="<c:url value='/resources/css/common.css'/>" rel="stylesheet">
 </head>
 <body>
 	<jsp:invoke fragment="beforeHeader"/>
@@ -30,19 +30,19 @@
 					<li class="bold"><a class="mgl-2 active">ABOUT US</a></li>
 		            <li class="bold"><a href="<c:url value='/storys'/>">ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
-		            <li class="bold"><a href="<c:url value='/news'/>">NEWS</a></li>
+		            <li class="bold"><a href="<c:url value='/news/1'/>">NEWS</a></li>
 				</c:when>
 				<c:when test="${page eq 'storys' }">
 					<li class="bold"><a href="<c:url value='/'/>" class="mgl-2">ABOUT US</a></li>
 		            <li class="bold"><a class="active">ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
-		            <li class="bold"><a href="<c:url value='/news'/>">NEWS</a></li>
+		            <li class="bold"><a href="<c:url value='/news/1'/>">NEWS</a></li>
 				</c:when>
 				<c:when test="${page eq 'portfolio' }">
 					<li class="bold"><a href="<c:url value='/'/>" class="mgl-2">ABOUT US</a></li>
 		            <li class="bold"><a href="<c:url value='/storys'/>" >ENTREPRENEUR STORIES</a></li>
 		            <li class="bold"><a class="active">PORTFOLIO</a></li>
-		            <li class="bold"><a href="<c:url value='/news'/>">NEWS</a></li>
+		            <li class="bold"><a href="<c:url value='/news/1'/>">NEWS</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="bold"><a href="<c:url value='/'/>" class="mgl-2">ABOUT US</a></li>
@@ -58,19 +58,19 @@
 					<li class="bold"><a class="mgl-2 active">关于我们</a></li>
 		            <li class="bold"><a href="<c:url value='/ch/storys'/>">企业故事</a></li>
 		            <li class="bold"><a href="<c:url value='/ch/portfolios'/>">合作伙伴</a></li>
-		            <li class="bold"><a href="<c:url value='/ch/news'/>">最新消息</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/news/1'/>">最新消息</a></li>
 				</c:when>
 				<c:when test="${page eq 'storys' }">
 					<li class="bold"><a href="<c:url value='/ch'/>" class="mgl-2">关于我们</a></li>
 		            <li class="bold"><a class="active">企业故事</a></li>
 		            <li class="bold"><a href="<c:url value='/ch/portfolios'/>">合作伙伴</a></li>
-		            <li class="bold"><a href="<c:url value='/ch/news'/>">最新消息</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/news/1'/>">最新消息</a></li>
 				</c:when>
 				<c:when test="${page eq 'portfolio' }">
 					<li class="bold"><a href="<c:url value='/ch'/>" class="mgl-2">关于我们</a></li>
 		            <li class="bold"><a href="<c:url value='/ch/storys'/>" >企业故事</a></li>
 		            <li class="bold"><a class="active">合作伙伴</a></li>
-		            <li class="bold"><a href="<c:url value='/ch/news'/>">最新消息</a></li>
+		            <li class="bold"><a href="<c:url value='/ch/news/1'/>">最新消息</a></li>
 				</c:when>
 				<c:otherwise>
 					<li class="bold"><a href="<c:url value='/ch'/>" class="mgl-2">关于我们</a></li>
@@ -136,6 +136,6 @@
     <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
     <script src="<c:url value='/resources/js/jquery-cookie.js'/>"></script>
     <script src="<c:url value='/resources/js/common.js'/>"></script>
-    <script src="<c:url value='/resources/js/less.js'/>"></script>
+    <!-- <script src="<c:url value='/resources/js/less.js'/>"></script> -->
 </body>
 </html>

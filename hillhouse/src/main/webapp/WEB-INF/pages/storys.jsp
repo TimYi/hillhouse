@@ -44,7 +44,7 @@
 		                <div class="es-content">
 		                    <h3>${story.summary }</h3>
 		                    <pre class="mgt-2">${story.content }</pre>
-		                    <a href="<c:url value='/story/${storys[0].id }'/>" class="text-right mgt-1 block">
+		                    <a href="<c:url value='/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
 		                        Full interview <span class="color-dangerous">></span>
 		                    </a>
 		                </div>

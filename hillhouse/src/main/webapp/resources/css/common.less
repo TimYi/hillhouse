@@ -206,7 +206,7 @@ background-repeat: round;
 .es-figure {
     position: relative;
     background-color: @es-color;
-    height: @figure-height;
+    min-height: @figure-height;
 }
 .es-figure-image {
     height: @figure-height;
@@ -218,6 +218,8 @@ background-repeat: round;
     top: 0;
     left: 0;
     width: 100%;
+    height:@figure-height;
+    overflow:hidden;
     border-left-style: solid;
     border-left-color: transparent;
     border-left-width: 14em;

@@ -19,7 +19,7 @@ public class PortfolioNewsController extends CommonController<PortfolioNews,News
 
 	@Override
 	protected String getBasePath() {
-		return "/admin/en/portfolionews";
+		return "/admin/portfolionews";
 	}
 	
 }

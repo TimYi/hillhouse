@@ -5,19 +5,24 @@
 <my:base page="storys">
 <jsp:body>
 	<div class="crumb container">
+        <c:if test="${lang eq 'EN' }" var="en">		
         <a href="<c:url value='/'/>" class="color-dangerous">Home</a>
+        </c:if>
+        <c:if test="${lang eq 'CH' }">		
+        <a href="<c:url value='/ch'/>" class="color-dangerous">主页</a>
+        </c:if>
         <span>></span>
-        <a>Entreprenenr Stories</a>
+        <a><c:if test="${en }">Entreprenenr Stories</c:if><c:if test="${!en }">企业故事</c:if></a>
     </div>
     <div class="container">
-        <h2 class="bold mgb-1">Entrepreneur Stories</h2>
+        <h2 class="bold mgb-1"><c:if test="${en }">Entreprenenr Stories</c:if><c:if test="${!en }">企业故事</c:if></h2>
         <div class="es-figure">
             <img class="es-figure-image" src="${storys[0].img }">
             <div class="es-figure-description">
-                <pre class="h2 mgt-1">${storys[0].summary }</pre>
-                <pre class="mgt-1">${storys[0].content }</pre>
-                <a href="<c:url value='/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
-                    Full interview <span class="color-dangerous">></span>
+                <pre class="h2 mgt-2">${storys[0].introduction }</pre>
+                <pre class="mgt-2">${storys[0].content }</pre>
+                <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
+                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
                 </a>
             </div>
         </div>
@@ -31,11 +36,11 @@
 	        		<div class="es-list">
 		                <img src="${story.img }" />		
 		                <div class="es-content">
-		                    <h3>${story.summary }</h3>
-		                    <pre class="mgt-2">${story.content }</pre>
-		                    <a href="<c:url value='/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
-		                        Full interview <span class="color-dangerous">></span>
-		                    </a>
+		                    <h3>${story.introduction }</h3>
+		                    <pre class="mgt-2 font-small">${story.content }</pre>
+		                    <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
+			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
+			                </a>
 		                </div>
 		            </div>
 	        	</c:when>
@@ -44,10 +49,10 @@
 		                <img src="${story.img }" />		
 		                <div class="es-content">
 		                    <h3>${story.summary }</h3>
-		                    <pre class="mgt-2">${story.content }</pre>
-		                    <a href="<c:url value='/storys/${storys[0].id }'/>" class="text-right mgt-1 block">
-		                        Full interview <span class="color-dangerous">></span>
-		                    </a>
+		                    <pre class="mgt-2 font-small">${story.content }</pre>
+		                    <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
+			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
+			                </a>
 		                </div>
 		            </div>
 	        	</c:otherwise>

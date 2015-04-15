@@ -1,5 +1,5 @@
 
-$(function(){ 
+$(function(){	
     if($(".hm").size()>0) {
        if(!isFresh()) {
             home();

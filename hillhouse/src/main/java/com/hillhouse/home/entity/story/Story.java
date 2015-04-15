@@ -14,6 +14,7 @@ import com.hillhouse.home.base.LanguagePriorityModel;
 public class Story extends LanguagePriorityModel {
 	private MediaContent media;
 	private String title;
+	private String introduction;
 	private String summary;
 	private String content;
 	/**
@@ -40,6 +41,19 @@ public class Story extends LanguagePriorityModel {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	/**
+	 * @return the introduction
+	 */
+	@Column(length=2000)
+	public String getIntroduction() {
+		return introduction;
+	}
+	/**
+	 * @param introduction the introduction to set
+	 */
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
 	/**
 	 * @return the summary

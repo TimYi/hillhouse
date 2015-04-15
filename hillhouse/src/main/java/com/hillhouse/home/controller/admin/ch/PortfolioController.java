@@ -19,7 +19,7 @@ public class PortfolioController extends CommonController<Portfolio, PortfolioDT
 
 	@Override
 	protected String getBasePath() {
-		return "/admin/ch/portfolio";
+		return "/admin/portfolio";
 	}
 
 }

@@ -3,15 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib  prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
-<my:base page="news">
+<my:base page="news" lang="${lang }">
 <jsp:body>
 	<div class="crumb container">
+		<c:if test="${lang eq 'EN' }" var="en">		
         <a href="<c:url value='/'/>" class="color-dangerous">Home</a>
+        </c:if>
+        <c:if test="${lang eq 'CH' }">		
+        <a href="<c:url value='/ch'/>" class="color-dangerous">主页</a>
+        </c:if>
         <span>></span>
-        <a>News</a>
+        <a><c:if test="${en }">News</c:if><c:if test="${!en }">最新消息</c:if></a>
     </div>
     <div class="container clear-fix">
-        <h2 class="bold">Features</h2>
+        <h2 class="bold"><c:if test="${en }">News</c:if><c:if test="${!en }">最新消息</c:if></h2>
+        <div class="block mgt-1"></div>
         <c:forEach items="${news.result }" var="n" varStatus="status">
         	<div class="new-list">
 	            <div>

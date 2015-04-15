@@ -13,6 +13,7 @@ public class FigureDTO extends LanguageModel {
 	private String lastname;
 	private String title;
 	private String fullTitle;
+	private String introduction;
 	private String summary;
 	private String story;
 	
@@ -111,6 +112,18 @@ public class FigureDTO extends LanguageModel {
 	 */
 	public void setFullTitle(String fullTitle) {
 		this.fullTitle = fullTitle;
+	}	
+	/**
+	 * @return the introduction
+	 */
+	public String getIntroduction() {
+		return introduction;
+	}
+	/**
+	 * @param introduction the introduction to set
+	 */
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
 	/**
 	 * @return the summary

@@ -49,6 +49,7 @@ public class WebController {
 		String viewPath=basePath+"index";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("figures", figures);
+		view.addObject("lang", language);
 		return view;
 	}
 	
@@ -58,6 +59,7 @@ public class WebController {
 		String viewPath=basePath+"storys";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("storys", storys);
+		view.addObject("lang", language);
 		return view;
 	}
 	
@@ -67,6 +69,7 @@ public class WebController {
 		List<PortfolioDTO> portfolios=portfolioService.getAll(language);
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("portfolios", portfolios);
+		view.addObject("lang", language);
 		return view;
 	}
 	
@@ -79,6 +82,7 @@ public class WebController {
 		PagedList<NewsDTO> news=portfolioNewsService.getPagedList(pageNo, pageSize, language);
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("portfolionews", news);
+		view.addObject("lang", language);
 		return view;
 	}
 	
@@ -91,6 +95,7 @@ public class WebController {
 		PagedList<NewsDTO> news=newsService.getPagedList(pageNo, pageSize, language);
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("news", news);
+		view.addObject("lang", language);
 		return view;
 	}
 	
@@ -100,6 +105,7 @@ public class WebController {
 		String viewPath=basePath+"figure";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("figure", figure);
+		view.addObject("lang", language);
 		return view;
 	}
 	
@@ -109,6 +115,7 @@ public class WebController {
 		String viewPath=basePath+"story";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("story", story);
+		view.addObject("lang", language);
 		return view;
 	}
 	

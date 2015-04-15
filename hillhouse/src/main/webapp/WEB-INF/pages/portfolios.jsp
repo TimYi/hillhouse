@@ -5,13 +5,18 @@
 <my:base page="portfolio">
 <jsp:body>
 	<div class="crumb container">
+		<c:if test="${lang eq 'EN' }" var="en">		
         <a href="<c:url value='/'/>" class="color-dangerous">Home</a>
+        </c:if>
+        <c:if test="${lang eq 'CH' }">		
+        <a href="<c:url value='/ch'/>" class="color-dangerous">主页</a>
+        </c:if>
         <span>></span>
-        <a>Portfolios</a>
+        <a><c:if test="${en }">Portfolios</c:if><c:if test="${!en }">合作伙伴</c:if></a>
     </div>
     <div class="container mgb-2">
-        <h2 class="bold">Portfolio Companies</h2>
-        <p class="mgt-2">Since 2005, Hillhouse has invested in many leading companies in their respective industries, below are selected portfolio companies:</p>
+        <h2 class="bold"><c:if test="${en }">Portfolio Companies</c:if><c:if test="${!en }">兄弟企业</c:if></h2>
+        <p class="mgt-2"><c:if test="${en }">Since 2005, Hillhouse has invested in many leading companies in their respective industries, below are selected portfolio companies:</c:if><c:if test="${!en }">自2005年成立以来，高瓴资本已先后投资了多家各行业领先企业，部分投资案例如下：</c:if></p>
         <div class="pf-lists">
         	<c:forEach items="${portfolios }" var="portfolio">
         		<div>

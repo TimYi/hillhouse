@@ -6,6 +6,7 @@ import com.hillhouse.home.base.LanguagePriorityModel;
 
 public class StoryDTO extends LanguagePriorityModel {
 	private String title;
+	private String introduction;
 	private String summary;
 	private String content;
 	private String img;
@@ -21,6 +22,18 @@ public class StoryDTO extends LanguagePriorityModel {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}	
+	/**
+	 * @return the introduction
+	 */
+	public String getIntroduction() {
+		return introduction;
+	}
+	/**
+	 * @param introduction the introduction to set
+	 */
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
 	/**
 	 * @return the summary

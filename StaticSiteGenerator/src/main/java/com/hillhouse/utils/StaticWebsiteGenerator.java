@@ -37,8 +37,17 @@ public class StaticWebsiteGenerator {
 	 */
 	public String siteUrl;
 	
-	public void resolve(String siteUrl, String url) {
-		this.siteUrl=siteUrl;
+	/**
+	 * 动态网站应用名称
+	 */
+	public String appName;
+	/**
+	 * 新网站应用名称
+	 */
+	public String newAppName;
+	
+	public void start() {
+		String url=siteUrl+"/"+appName;
 		resolve(url);
 	}
 	
@@ -76,11 +85,13 @@ public class StaticWebsiteGenerator {
 		if(url.endsWith("/")) {
 			url=StringUtils.removeEnd(url, "/");
 		}
-		String dirPath=basePath+"/"+url;
+		String dirPath=basePath+url;
 		File dir=new File(dirPath);
 		dir.mkdirs();
 		String filePath=dirPath+"/"+"index.html";
 		File html=new File(filePath);
+		content=content.replaceAll(siteUrl, "");
+		content=content.replaceAll(appName, newAppName);
 		FileUtils.writeStringToFile(html, content, "UTF-8");  
 	}
 	
@@ -166,9 +177,10 @@ public class StaticWebsiteGenerator {
 		}
 		StaticWebsiteGenerator generator=new StaticWebsiteGenerator();
 		generator.basePath=configuration.getString("basePath");
-		String siteUrl=configuration.getString("siteUrl");
-		String appUrl=configuration.getString("appUrl");
-		generator.resolve(siteUrl,appUrl);
+		generator.siteUrl=configuration.getString("siteUrl");
+		generator.appName=configuration.getString("appName");
+		generator.newAppName=configuration.getString("newAppName");
+		generator.start();
 		/*
 		for (String link : generator.solvedLinks) {
 			System.out.println(link);

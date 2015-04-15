@@ -19,6 +19,6 @@ public class FigureController extends CommonController<Figure, FigureDTO> {
 
 	@Override
 	protected String getBasePath() {
-		return "/admin/en/figure";
+		return "/admin/figure";
 	}
 }

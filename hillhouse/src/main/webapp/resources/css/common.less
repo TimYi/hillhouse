@@ -27,11 +27,21 @@ a,.link {
     }
 }
 
+h2, .h2 {
+    font-size: 27px;
+}
+.font-bigger {
+    font-size: 13px;
+}
+h3,.h3 {
+    font-size: 18px;
+}
+
 //*************************************************
 //通用common部分
 //*************************************************
 //基本容器
-.container{width: 850px;margin-left: auto; margin-right: auto;}
+.container{width: 1080px;margin-left: auto; margin-right: auto;}
 //header部分
 .header {
     width: 100%;
@@ -41,7 +51,7 @@ a,.link {
 .logo {float: left;width: 100px;height: 100px;background:url(../image/logo.jpg) no-repeat;margin: 0;cursor: pointer;}
 .header {
     ul{
-        height:100px;margin-left: 1em;
+        height:100px;margin-left: 5em;
         li {
             float:left;height:100%;margin:0 1em;
             a{
@@ -64,22 +74,30 @@ background-repeat: round;}
 
 //footer部分
 .footer{
-    width:100%;height:48px;line-height: 48px; background:#3e3131;color: white;
+    @height:75px;
+    width:100%;height:@height;line-height: @height; background:#3e3131;color: white;
+    text-align: center;
 }
 //contact us 部分
 .contact {
     background-color: gainsboro;
     display: none;
+    height: 440px;
+}
+.contact-container {
+    box-sizing: border-box;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    height: 100%;
 }
 .contact-us {
     box-sizing: border-box;
     float: left;
     width: 70%;
+    height: 100%;
     background-color: white;
-    padding-left: 2em;
-    padding-right: 1em;
-    padding-top: 1.4em;
-    padding-bottom: 1.2em;
+    padding-left: 30px;
+    padding-right: 15px;
     label {
         display:block;
         margin-top: 1em;
@@ -88,12 +106,14 @@ background-repeat: round;}
         width: 94%;
         background-color: #ebe7e7;
         border: none;
-        padding: 0.2em 0;
+        padding: 0.5em 0;
+        margin-top: 0.5em;
+        height: 2em;
     }
     textarea {
         resize: none;
         width: 100%;
-        height: 9.8em;
+        height: 14.4em;
         padding: 0;
     }
     button {
@@ -102,7 +122,7 @@ background-repeat: round;}
         width:14em;
         border: none;
         padding: 0.5em 0;
-        margin-top: 1em;
+        margin-top: 2em;
         cursor: pointer;
     }
 }
@@ -162,14 +182,17 @@ background-repeat: round;}
     height: 100%;
     background:url(../image/home.jpg);background-size: 100% 100%;
 background-repeat: round;
-    .active {
-        border-top-color: transparent;
-        color: black;
+    a {
+        .link(white,white,red);
+        &.active {
+            .link(black,black,red);
+        }
     }
 }
 .hm-title {
-    font-size: 60px;
+    font-size: 77px;
     margin: 1em 1em;
+    text-shadow: 4px 4px 10px #888888;
 }
 .hm-learn-more {
     padding: 0.6em;
@@ -201,30 +224,28 @@ background-repeat: round;
 //*************************************************
 //.es Entrepreneur Stories部分单独css设计
 //*************************************************
-@figure-height:15em;
+@figure-height:370px;
 @es-color:#f2ebe2;
 .es-figure {
-    position: relative;
     background-color: @es-color;
     min-height: @figure-height;
+    .clear-fix;
 }
 .es-figure-image {
     height: @figure-height;
     width: @figure-height;
+    float: left;
 }
 .es-figure-description {
     box-sizing: border-box;
-    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    float: left;
+    width: 1080px-@figure-height;
     height:@figure-height;
     overflow:hidden;
-    border-left-style: solid;
-    border-left-color: transparent;
-    border-left-width: 14em;
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 62px;
+    padding-right: 74px;
 }
 .es-list {
     width: 22%;
@@ -232,6 +253,7 @@ background-repeat: round;
     img {
         width: 100%;
         height: auto;
+        min-height: 200px;
     }
     background-color: @es-color;
     margin-bottom: 2em;
@@ -261,7 +283,7 @@ background-repeat: round;
         background-clip: content-box;
         background-origin: content-box;
         border-right: solid 2em transparent;
-        height: 10em;
+        height: 13em;
         img {
             vertical-align: middle;
         }
@@ -271,16 +293,17 @@ background-repeat: round;
 //.fg figure 部分单独css设计
 //*************************************************
 .fg-content {
+    @img-width:370px;
     .clear-fix;
     margin-top: 2em;
     >img {
-        width: 25%;
-        height: auto;
+        width: @img-width;
+        height: @img-width;
         .fl;
     }
     >div {
-        width: 40%;
-        margin-left: 3em;
+        width: 34.5em;
+        margin-left: 4.5em;
         .fl;
     }
 }

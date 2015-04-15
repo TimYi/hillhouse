@@ -47,6 +47,7 @@ public abstract class CommonController
 		String viewPath=getBasePath()+"/list";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("ts", ts);
+		view.addObject("lang", getLanguage());
 		return view;
 	}
 	
@@ -61,6 +62,7 @@ public abstract class CommonController
 		String viewPath=getBasePath()+"/info";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("t", t);
+		view.addObject("lang", getLanguage());
 		return view;
 	}
 
@@ -86,6 +88,7 @@ public abstract class CommonController
 		String viewPath=getBasePath()+"/edit";
 		ModelAndView view=new ModelAndView(viewPath);
 		view.addObject("t", t);
+		view.addObject("lang", getLanguage());
 		return view;
 	}
 
@@ -110,7 +113,9 @@ public abstract class CommonController
 	@RequestMapping(value="add",method=RequestMethod.GET)
 	public ModelAndView add() {
 		String viewPath=getBasePath()+"/add";
-		return new ModelAndView(viewPath);
+		ModelAndView view=new ModelAndView(viewPath);
+		view.addObject("lang", getLanguage());
+		return view;
 	}
 
 	/**

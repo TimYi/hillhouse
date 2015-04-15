@@ -19,6 +19,6 @@ public class StoryController extends CommonController<Story, StoryDTO> {
 
 	@Override
 	protected String getBasePath() {
-		return "/admin/en/story";
+		return "/admin/story";
 	}
 }

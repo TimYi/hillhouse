@@ -29,6 +29,7 @@ public class FigureDTOAdapter extends LanguageMediaDTOAdapter<Figure, FigureDTO>
 		d.setLastname(t.getLastname());
 		d.setPriority(t.getPriority());
 		d.setStory(t.getStory());
+		d.setIntroduction(t.getIntroduction());
 		d.setSummary(t.getSummary());
 		d.setTitle(t.getTitle());
 		MultipartFile file=t.getMedia();
@@ -55,6 +56,7 @@ public class FigureDTOAdapter extends LanguageMediaDTOAdapter<Figure, FigureDTO>
 		t.setFullTitle(d.getFullTitle());
 		t.setLastname(d.getLastname());
 		t.setPriority(d.getPriority());
+		t.setIntroduction(d.getIntroduction());
 		t.setStory(d.getStory());
 		t.setSummary(d.getSummary());
 		t.setTitle(d.getTitle());

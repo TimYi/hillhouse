@@ -19,7 +19,7 @@ public class NewsController extends CommonController<News, NewsDTO> {
 
 	@Override
 	protected String getBasePath() {
-		return "/admin/ch/news/";
+		return "/admin/news/";
 	}
 	
 }

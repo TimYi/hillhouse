@@ -6,16 +6,21 @@
 <my:base page="storys">
 <jsp:body>
 	<div class="crumb container">
+        <c:if test="${lang eq 'EN' }" var="en">		
         <a href="<c:url value='/'/>" class="color-dangerous">Home</a>
+        </c:if>
+        <c:if test="${lang eq 'CH' }">		
+        <a href="<c:url value='/ch'/>" class="color-dangerous">主页</a>
+        </c:if>
         <span>></span>
-        <a>story</a>
+        <a><c:if test="${en }">story</c:if><c:if test="${!en }">企业故事</c:if></a>
     </div>
     <div class="container mgb-2">
         <h2 class="bold inline">${story.title }</h2>
         <div class="fg-content">
             <img src="${story.img }"/>
             <div>
-                <h4>${story.summary }</h4><br/>
+                <h3>${story.summary }</h3><br/>
                 <pre>${story.content }</pre>
             </div>
         </div>

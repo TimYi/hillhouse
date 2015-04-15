@@ -22,3 +22,15 @@ function del(url,id) {
         }
     });
 }
+function deploy(url) {
+	$.ajax({
+        url:url,
+        type:"POST",
+        success:function() {
+            alert("发布成功");
+        },
+        error:function() {
+            alert("发布失败！");
+        }
+    });
+}

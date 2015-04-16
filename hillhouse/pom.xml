@@ -121,6 +121,12 @@
 		  <artifactId>jackson-datatype-hibernate4</artifactId>
 		  <version>${jackson.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.github.sommeri</groupId>
+			<artifactId>less4j</artifactId>
+			<version>1.9.0</version>
+		</dependency>
 		 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -178,23 +184,7 @@
 			<artifactId>tomcat-jdbc</artifactId>
 			<version>7.0.56</version>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.github.sommeri</groupId>
-			<artifactId>less4j</artifactId>
-			<version>1.9.0</version>
-		</dependency>
-		
-		<dependency>
-        	<groupId>org.glassfish.jersey.core</groupId>
-        	<artifactId>jersey-client</artifactId>
-        	<version>${jersey.version}</version>
-        </dependency> 
-        <dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-multipart</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
+		</dependency>		
   </dependencies>
   <build>
     <finalName>hillhouse</finalName>

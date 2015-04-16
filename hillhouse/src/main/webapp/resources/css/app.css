@@ -1,4 +1,5 @@
 @import url(bootstrap.min.css);
+@import url(bootstrap-datepicker.min.css);
 
 /*对bootstrap进行样式重定义*/
 .text-center th {

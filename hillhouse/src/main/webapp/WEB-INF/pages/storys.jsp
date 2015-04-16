@@ -36,9 +36,11 @@
 	        		<div class="es-list">
 		                <img src="${story.img }" />		
 		                <div class="es-content">
+		                	<div>
 		                    <h3>${story.introduction }</h3>
 		                    <pre class="mgt-2 font-small">${story.content }</pre>
-		                    <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
+		                	</div>
+		                    <a href="<c:if test="${en }"><c:url value='/storys/${story.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${story.id }'/></c:if>" class="text-right mgt-2 block">
 			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
 			                </a>
 		                </div>
@@ -48,9 +50,11 @@
 	        		<div class="es-list es-margin">
 		                <img src="${story.img }" />		
 		                <div class="es-content">
+		                	<div>
 		                    <h3>${story.summary }</h3>
 		                    <pre class="mgt-2 font-small">${story.content }</pre>
-		                    <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
+		                    </div>
+		                    <a href="<c:if test="${en }"><c:url value='/storys/${story.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${story.id }'/></c:if>" class="text-right mgt-2 block">
 			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
 			                </a>
 		                </div>

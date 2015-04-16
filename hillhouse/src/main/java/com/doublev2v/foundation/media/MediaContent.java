@@ -97,7 +97,7 @@ public class MediaContent extends StatusModel {
 	 */
 	public void setServerAddress(String serverAddress) {
 		this.serverAddress = serverAddress;
-		this.url=serverAddress+path;
+		this.url=serverAddress+path;	
 	}
 	
 	/**

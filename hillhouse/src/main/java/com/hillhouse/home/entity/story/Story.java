@@ -7,6 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Type;
+
 import com.doublev2v.foundation.media.MediaContent;
 import com.hillhouse.home.base.LanguagePriorityModel;
 
@@ -71,7 +73,7 @@ public class Story extends LanguagePriorityModel {
 	/**
 	 * @return the content
 	 */
-	@Column(length=4000)
+	@Type(type="text")
 	public String getContent() {
 		return content;
 	}

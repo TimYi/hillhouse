@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +28,7 @@ public class LocalMediaService implements MediaService {
 	private String serverName;
 	private String serverAddress;
 	private String basePath;
-	private String relativePath;
+	private String relativePath="/image/";
 	
 	@Override
 	public MediaContent getMedia(String id) {
@@ -49,7 +50,7 @@ public class LocalMediaService implements MediaService {
 			//清理旧文件
 			deleteFile(media);
 		}
-		media.setServerAddress(serverAddress);
+		media.setServerAddress(getServerAddress());
 		media.setFileSize(file.getSize());
 		media.setServerName(serverName);
 		media.setContentType(file.getContentType());
@@ -165,6 +166,7 @@ public class LocalMediaService implements MediaService {
 	 * @param relativePath the relativePath to set
 	 */
 	public void setRelativePath(String relativePath) {
+		if(StringUtils.isEmpty(relativePath))return;
 		this.relativePath = relativePath;
 	}
 }

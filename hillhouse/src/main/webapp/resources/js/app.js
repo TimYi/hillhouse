@@ -1,11 +1,19 @@
 $(function(){
+	$("#datepicker").datepicker({
+        format:"yyyy-mm-dd",
+    });
 	$("textarea").each(function(){
 		var uuid=generateUUID();
 		$(this).attr("id",uuid);
 		KindEditor.ready(function(K) {
-            window.editor = K.create('#'+uuid);
+            window.editor = K.create('#'+uuid,{
+            	autoHeightMode:true,
+            	uploadJson : '/hillhouse/upload',
+                fileManagerJson : '/hillhouse/upload',
+                allowFileManager : true
+            	});
 		});
-	});
+	});	
 });
 
 

@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="date" class="col-sm-2 control-label">date:</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="date" placeholder="please input date">
+                            <input id="datepicker" type="date" class="form-control" name="date" placeholder="please input date">
                         </div>
                     </div>
                     <div class="form-group">

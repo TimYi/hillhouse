@@ -25,6 +25,6 @@ public class ApplicationMediaService extends LocalMediaService {
 	
 	@Override
 	public String getServerAddress() {
-		return context.getRealPath("/");
+		return context.getContextPath();
 	}
 }

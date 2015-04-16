@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletContext;
+
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
@@ -46,9 +48,27 @@ public class StaticWebsiteGenerator {
 	 */
 	public String newAppName;
 	
+	public String imgServerPath;
+	
+	protected ServletContext context;
+	
 	public void start() {
-		String url=siteUrl+"/"+appName;
-		resolve(url);
+		try {
+			String url=siteUrl+"/"+appName;
+			resolve(url);
+			String resourcesPath=context.getRealPath("/resources");
+			String newResourcesPath=basePath+"/"+appName+"/resources";
+			File resources=new File(resourcesPath);
+			File newResources=new File(newResourcesPath);
+			FileUtils.copyDirectory(resources, newResources);
+			String imagePath=context.getRealPath(imgServerPath);
+			File image=new File(imagePath);
+			String newImagePath=basePath+"/"+appName+imgServerPath;
+			File newImage=new File(newImagePath);
+			FileUtils.copyDirectory(image, newImage);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 	
 	/**
@@ -167,19 +187,30 @@ public class StaticWebsiteGenerator {
 		return HtmlGenerator.generate(url);
 	}
 	
-	public static void deploy() {
+	public static void deploy(ServletContext context) {
 		Configuration configuration;
 		try {
-			configuration=new PropertiesConfiguration("deploy.properties");
+			configuration=new PropertiesConfiguration("app.properties");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;
 		}
 		StaticWebsiteGenerator generator=new StaticWebsiteGenerator();
-		generator.basePath=configuration.getString("basePath");
-		generator.siteUrl=configuration.getString("siteUrl");
-		generator.appName=configuration.getString("appName");
-		generator.newAppName=configuration.getString("newAppName");
+		//generator.basePath=configuration.getString("basePath");
+		//generator.siteUrl=configuration.getString("siteUrl");
+		//generator.appName=configuration.getString("appName");
+		String newAppName=configuration.getString("newAppName");
+		String imgServerPath=configuration.getString("imageServer.relativePath");
+		String siteUrl=configuration.getString("siteUrl");
+		imgServerPath=StringUtils.removeEnd(imgServerPath, "/");
+		String contextPath=context.getContextPath();		
+		String appName=StringUtils.removeStart(contextPath, "/");
+		generator.newAppName=StringUtils.isEmpty(generator.newAppName)?appName:newAppName;
+		generator.basePath=context.getRealPath("/StaticWebsite");
+		generator.appName=appName;
+		generator.siteUrl=siteUrl;
+		generator.context=context;
+		generator.imgServerPath=imgServerPath==null?"/image":imgServerPath;
 		generator.start();
 	}
 	

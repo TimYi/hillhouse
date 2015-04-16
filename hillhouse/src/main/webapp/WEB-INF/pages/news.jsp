@@ -24,7 +24,7 @@
 	                <img src="${n.img }">
 	                <div>
 	                    <h4>${n.title }</h4>
-	                    <p class="mgt-1"><fmt:formatDate value="${n.date }" pattern="yyyy-MM-dd"/> | ${n.author } | ${n.origion }</p>
+	                    <p class="mgt-1"><fmt:formatDate value="${n.date }" pattern="dd.MM.yyyy"/> | ${n.author } | ${n.origion }</p>
 	                    <pre class="mgt-1">${n.summary }</pre>
 	                    <a href="${n.link }" target="_blank" class="mgt-1 block">read the artical at ${n.linkShorthand } <span class="color-dangerous">></span></a>
 	                </div>
@@ -38,10 +38,10 @@
         <div class="list-index mgt-4 mgb-2">
         	<c:forEach begin="1" end="${news.totalPages }" varStatus="status">
         		<c:if test="${status.count eq news.pageNo }" var="isActive">
-        			<a href="<c:url value='/news/${news.pageNo }'/>" class="active">${status.count }</a>
+        			<a href="<c:if test="${en }"><c:url value='/news/${news.pageNo }'/></c:if><c:url value='/ch/news/${news.pageNo }'/><c:if test="${!en }">最新消息</c:if>" class="active">${status.count }</a>
         		</c:if>
         		<c:if test="${!isActive }">
-        			<a href="<c:url value='/news/${status.count }'/>">${status.count }</a>
+        			<a href="<c:if test="${en }"><c:url value='/news/${status.count }'/></c:if><c:url value='/news/${status.count }'/><c:if test="${!en }">最新消息</c:if>">${status.count }</a>
         		</c:if>
         	</c:forEach>
         </div>

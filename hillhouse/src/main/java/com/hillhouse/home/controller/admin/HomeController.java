@@ -1,5 +1,8 @@
 package com.hillhouse.home.controller.admin;
 
+import javax.servlet.ServletContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,6 +14,9 @@ import com.hillhouse.home.deploy.StaticWebsiteGenerator;
 @Controller
 @RequestMapping("/admin")
 public class HomeController {
+	
+	@Autowired
+	private ServletContext context;
 	@RequestMapping("")
 	public ModelAndView en() {
 		ModelAndView view=new ModelAndView("admin/index");
@@ -26,7 +32,7 @@ public class HomeController {
 	
 	@RequestMapping("deploy")
 	public @ResponseBody String deploy() {
-		StaticWebsiteGenerator.deploy();
+		StaticWebsiteGenerator.deploy(context);
 		return "发布成功";
 	}
 }

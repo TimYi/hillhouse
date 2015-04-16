@@ -20,8 +20,8 @@
                     </div>
                     <div class="form-group">
                         <label for="date" class="col-sm-2 control-label">date:</label>
-                        <div class="col-sm-10">
-                            <input value="${t.date }" type="date" class="form-control" name="date" placeholder="please input date">
+                        <div class="col-sm-10">                        
+                            <input id="datepicker" value="<fmt:formatDate pattern="yyyy-MM-dd" value='${t.date }'/> " type="date" class="form-control" name="date" placeholder="please input date">
                         </div>
                     </div>
                     <div class="form-group">

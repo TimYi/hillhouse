@@ -73,7 +73,9 @@
     <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
     <script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
     <script charset="utf-8" src="<c:url value='/resources/js/kindeditor.js'/>"></script>
+    <script charset="utf-8" src="<c:url value='/resources/js/autoheight.js'/>"></script>
     <script charset="utf-8" src="<c:url value='/resources/js/lang/zh_CN.js'/>"></script>
+	<script src="<c:url value='/resources/js/bootstrap-datepicker.min.js'/>"></script>
     <script src="<c:url value='/resources/js/app.js'/>"></script>
 </body>
 </html>

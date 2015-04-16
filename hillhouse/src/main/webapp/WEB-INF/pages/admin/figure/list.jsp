@@ -5,7 +5,7 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
 <my:admin lang="${lang }">
-<button onclick="add('<c:url value='/admin/figure'/>')" class="btn btn-default mgt-1">添加</button>               
+<button onclick="add('<c:if test="${lang eq 'EN' }" var="en"><c:url value='/admin/figure'/></c:if><c:if test="${!en }"><c:url value='/admin/ch/figure'/></c:if>')" class="btn btn-default mgt-1">添加</button>               
                 <table class="table table-bordered text-center mgt-2">
                     <thead>
                         <tr>
@@ -24,8 +24,8 @@
 	                            <td>${t.lastname }</td>
 	                            <td>${t.title }</td>
 	                            <td>${t.fullTitle }</td>
-	                            <td><a onclick="edit('<c:url value='/admin/figure'/>','${t.id}')">修改</a>
-	                            <td><a onclick="del('<c:url value='/admin/figure'/>','${t.id}')">删除</a>
+	                            <td><a onclick="edit('<c:if test="${en }"><c:url value='/admin/figure'/></c:if><c:if test="${!en }"><c:url value='/admin/ch/figure'/></c:if>','${t.id}')">修改</a>
+	                            <td><a onclick="del('<c:if test="${en }"><c:url value='/admin/figure'/></c:if><c:if test="${!en }"><c:url value='/admin/ch/figure'/></c:if>','${t.id}')">删除</a>
 	                        </tr>
                     	</c:forEach>
                     </tbody>

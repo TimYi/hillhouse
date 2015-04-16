@@ -88,7 +88,7 @@
     <script></script>
     <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
     <script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
-    <script src="<c:url value='/resources/js/app.js'/>"></script>
+    <!-- <script src="<c:url value='/resources/js/app.js'/>"></script> -->
 </body>
 </html>
 </c:if>

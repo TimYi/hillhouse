@@ -216,11 +216,26 @@ display
 .mgb-2 {
   margin-bottom: 2em;
 }
+.mgb-3 {
+  margin-bottom: 3em;
+}
+.mgb-4 {
+  margin-bottom: 4em;
+}
 .mgl-1 {
   margin-left: 1em;
 }
 .mgl-2 {
   margin-left: 2em;
+}
+.mgl-3 {
+  margin-left: 3em;
+}
+.mgr-1 {
+  margin-right: 1em;
+}
+.mgr-2 {
+  margin-right: 2em;
 }
 .padding-safe {
   padding-bottom: 40px;
@@ -261,7 +276,7 @@ display
 body {
   font-family: Arial, "微软雅黑", Helvetica, sans-serif;
   color: black;
-  font-size: 14px;
+  font-size: 13px;
 }
 button,
 pre,
@@ -276,16 +291,16 @@ pre {
   word-wrap: break-word;
 }
 .font-base {
-  font-size: 12px;
+  font-size: 13px;
 }
 .font-small {
-  font-size: 11px;
+  font-size: 12px;
 }
 .font-xs {
-  font-size: 7px;
+  font-size: 8px;
 }
 .font-large {
-  font-size: 15px;
+  font-size: 17px;
 }
 .bold {
   font-weight: bold;
@@ -367,27 +382,27 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 31px;
+  font-size: 33px;
 }
 h2,
 .h2 {
-  font-size: 25px;
+  font-size: 27px;
 }
 h3,
 .h3 {
-  font-size: 21px;
+  font-size: 23px;
 }
 h4,
 .h4 {
-  font-size: 15px;
+  font-size: 17px;
 }
 h5,
 .h5 {
-  font-size: 12px;
+  font-size: 13px;
 }
 h6,
 .h6 {
-  font-size: 11px;
+  font-size: 12px;
 }
 /*=========================
 过渡效果
@@ -436,14 +451,25 @@ a.underline,
 .link.underline {
   text-decoration: underline;
 }
+h2,
+.h2 {
+  font-size: 27px;
+}
+.font-bigger {
+  font-size: 13px;
+}
+h3,
+.h3 {
+  font-size: 18px;
+}
 .container {
-  width: 850px;
+  width: 1080px;
   margin-left: auto;
   margin-right: auto;
 }
 .header {
   width: 100%;
-  width: 850px;
+  width: 1080px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -463,7 +489,7 @@ a.underline,
 }
 .header ul {
   height: 100px;
-  margin-left: 1em;
+  margin-left: 5em;
 }
 .header ul li {
   float: left;
@@ -493,24 +519,31 @@ a.underline,
 }
 .footer {
   width: 100%;
-  height: 48px;
-  line-height: 48px;
+  height: 75px;
+  line-height: 75px;
   background: #3e3131;
   color: white;
+  text-align: center;
 }
 .contact {
   background-color: gainsboro;
   display: none;
+  height: 440px;
+}
+.contact-container {
+  box-sizing: border-box;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  height: 100%;
 }
 .contact-us {
   box-sizing: border-box;
   float: left;
   width: 70%;
+  height: 100%;
   background-color: white;
-  padding-left: 2em;
-  padding-right: 1em;
-  padding-top: 1.4em;
-  padding-bottom: 1.2em;
+  padding-left: 30px;
+  padding-right: 15px;
 }
 .contact-us label {
   display: block;
@@ -522,12 +555,14 @@ a.underline,
   width: 94%;
   background-color: #ebe7e7;
   border: none;
-  padding: 0.2em 0;
+  padding: 0.5em 0;
+  margin-top: 0.5em;
+  height: 2em;
 }
 .contact-us textarea {
   resize: none;
   width: 100%;
-  height: 9.8em;
+  height: 14.4em;
   padding: 0;
 }
 .contact-us button {
@@ -536,7 +571,7 @@ a.underline,
   width: 14em;
   border: none;
   padding: 0.5em 0;
-  margin-top: 1em;
+  margin-top: 2em;
   cursor: pointer;
 }
 .contact-content {
@@ -572,6 +607,11 @@ a.underline,
   width: 33.333333333333333333333333333333333333333%;
   padding-right: 2em;
 }
+.hm-peoples pre {
+  line-height: 1.2em;
+  max-height: 5.9em;
+  overflow: hidden;
+}
 #hm-slide {
   color: white;
   height: 100%;
@@ -579,13 +619,40 @@ a.underline,
   background-size: 100% 100%;
   background-repeat: round;
 }
-#hm-slide .active {
-  border-top-color: transparent;
+#hm-slide a:link {
+  color: white;
+  text-decoration: none;
+}
+#hm-slide a:visited {
+  color: white;
+}
+#hm-slide a:hover {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#hm-slide a:active {
+  color: red;
+}
+#hm-slide a.active:link {
+  color: black;
+  text-decoration: none;
+}
+#hm-slide a.active:visited {
   color: black;
 }
+#hm-slide a.active:hover {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#hm-slide a.active:active {
+  color: red;
+}
 .hm-title {
-  font-size: 60px;
+  font-size: 77px;
   margin: 1em 1em;
+  text-shadow: 4px 4px 10px #888888;
 }
 .hm-learn-more {
   padding: 0.6em;
@@ -615,25 +682,30 @@ a.underline,
   transition: all 1s ease-in-out;
 }
 .es-figure {
-  position: relative;
   background-color: #f2ebe2;
-  height: 15em;
+  min-height: 370px;
+}
+.es-figure:before,
+.es-figure:after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 .es-figure-image {
-  height: 15em;
-  width: 15em;
+  height: 370px;
+  width: 370px;
+  float: left;
 }
 .es-figure-description {
   box-sizing: border-box;
-  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  border-left-style: solid;
-  border-left-color: transparent;
-  border-left-width: 14em;
-  padding-left: 4em;
-  padding-right: 4em;
+  float: left;
+  width: 710px;
+  height: 370px;
+  overflow: hidden;
+  padding-left: 62px;
+  padding-right: 74px;
 }
 .es-list {
   width: 22%;
@@ -644,6 +716,7 @@ a.underline,
 .es-list img {
   width: 100%;
   height: auto;
+  min-height: 200px;
 }
 .es-margin {
   margin-left: 4%;
@@ -673,7 +746,7 @@ a.underline,
   background-clip: content-box;
   background-origin: content-box;
   border-right: solid 2em transparent;
-  height: 10em;
+  height: 13em;
 }
 .pf-lists > div img {
   vertical-align: middle;
@@ -688,13 +761,13 @@ a.underline,
   clear: both;
 }
 .fg-content > img {
-  width: 25%;
-  height: auto;
+  width: 370px;
+  height: 370px;
   float: left;
 }
 .fg-content > div {
-  width: 40%;
-  margin-left: 3em;
+  width: 34.5em;
+  margin-left: 4.5em;
   float: left;
 }
 .new-list > div {

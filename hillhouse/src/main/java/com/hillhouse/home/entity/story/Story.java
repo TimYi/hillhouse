@@ -86,6 +86,7 @@ public class Story extends LanguagePriorityModel {
 	 */
 	@Transient
 	public String getImg() {
+		if(media==null)return null;
 		return media.getUrl();
 	}
 }

@@ -3,7 +3,6 @@
 
 <%@ attribute name="lang" required="true" %>
 
-<c:if test="${lang ne 'CH' }">
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +12,7 @@
     <link href="<c:url value='/resources/css/app.css'/>" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+	<c:if test="${lang ne 'CH' }">
     <div class="container-fluid">
         <nav class="navbar navbar-default">
             <div class="navbar-header">
@@ -39,25 +39,9 @@
       		<jsp:doBody/>
 			</div>
         </div>        
-    </div>  
-    <script></script>
-    <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
-    <script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
-    <script src="<c:url value='/resources/js/app.js'/>"></script>
-</body>
-</html>
-</c:if>
-
-<c:if test="${lang eq 'CH' }">
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hillhouse backetend</title>
-    <link href="<c:url value='/resources/css/app.css'/>" type="text/css" rel="stylesheet"/>
-</head>
-<body>
+    </div> 
+    </c:if> 
+    <c:if test="${lang eq 'CH' }">
     <div class="container-fluid">
         <nav class="navbar navbar-default">
             <div class="navbar-header">
@@ -84,11 +68,13 @@
       		<jsp:doBody/>
 			</div>
         </div>        
-    </div>  
-    <script></script>
+    </div> 
+    </c:if>
     <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
     <script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
-    <!-- <script src="<c:url value='/resources/js/app.js'/>"></script> -->
+    <script charset="utf-8" src="<c:url value='/resources/js/kindeditor.js'/>"></script>
+    <script charset="utf-8" src="<c:url value='/resources/js/lang/zh_CN.js'/>"></script>
+    <script src="<c:url value='/resources/js/app.js'/>"></script>
 </body>
 </html>
-</c:if>
+

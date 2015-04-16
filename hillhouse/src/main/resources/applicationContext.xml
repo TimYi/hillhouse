@@ -99,8 +99,8 @@
 	<!-- 配置图片上传服务信息 -->
   	<bean class="com.doublev2v.foundation.media.ApplicationMediaService">
   		<property name="serverName" value="${imageServer.name}"/>
-  		<property name="serverAddress" value="${imageServer.address}"/>
-  		<!-- <property name="basePath" value="${imageServer.basePath}"/> -->
+  		<!-- <property name="serverAddress" value="${imageServer.address}"/>
+  		<property name="basePath" value="${imageServer.basePath}"/> -->
   		<property name="relativePath" value="${imageServer.relativePath}"/>
   	</bean> 
   	

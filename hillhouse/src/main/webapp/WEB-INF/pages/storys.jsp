@@ -19,8 +19,8 @@
         <div class="es-figure">
             <img class="es-figure-image" src="${storys[0].img }">
             <div class="es-figure-description">
-                <pre class="h2 mgt-2">${storys[0].introduction }</pre>
-                <pre class="mgt-2">${storys[0].content }</pre>
+                <p class="h2 mgt-2">${storys[0].title }</p>
+                <pre class="mgt-2">${storys[0].introduction }</pre>
                 <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
                     <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
                 </a>
@@ -28,39 +28,28 @@
         </div>
         <div class="mgt-2 clear-fix">
         	<c:forEach items="${storys }" var="story" varStatus="status">
+        	<c:if test="${status.index ne 0 }">
         	<c:choose>
-	        	<c:when test="${status.index eq 0 }">
-	        	</c:when>
 	        	<c:when test="${status.index % 4 eq 1 }">
 	        		<div class="clear"></div>
 	        		<div class="es-list">
-		                <img src="${story.img }" />		
+	        	</c:when>
+	        	<c:otherwise>
+	        		<div class="es-list es-margin">
+	        	</c:otherwise>
+        	</c:choose>        	
+        		<img src="${story.img }" />		
 		                <div class="es-content">
 		                	<div>
-		                    <h3>${story.introduction }</h3>
-		                    <pre class="mgt-2 font-small">${story.content }</pre>
+		                    <h3>${story.title }</h3>
+		                    <pre class="mgt-2 font-small">${story.introduction }</pre>
 		                	</div>
 		                    <a href="<c:if test="${en }"><c:url value='/storys/${story.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${story.id }'/></c:if>" class="text-right mgt-2 block">
 			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
 			                </a>
 		                </div>
 		            </div>
-	        	</c:when>
-	        	<c:otherwise>
-	        		<div class="es-list es-margin">
-		                <img src="${story.img }" />		
-		                <div class="es-content">
-		                	<div>
-		                    <h3>${story.summary }</h3>
-		                    <pre class="mgt-2 font-small">${story.content }</pre>
-		                    </div>
-		                    <a href="<c:if test="${en }"><c:url value='/storys/${story.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${story.id }'/></c:if>" class="text-right mgt-2 block">
-			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
-			                </a>
-		                </div>
-		            </div>
-	        	</c:otherwise>
-        	</c:choose>
+		         </c:if>
         	</c:forEach>
         </div>
     </div>

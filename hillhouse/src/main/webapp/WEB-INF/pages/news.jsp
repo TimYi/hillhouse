@@ -38,10 +38,10 @@
         <div class="list-index mgt-4 mgb-2">
         	<c:forEach begin="1" end="${news.totalPages }" varStatus="status">
         		<c:if test="${status.count eq news.pageNo }" var="isActive">
-        			<a href="<c:if test="${en }"><c:url value='/news/${news.pageNo }'/></c:if><c:url value='/ch/news/${news.pageNo }'/><c:if test="${!en }">最新消息</c:if>" class="active">${status.count }</a>
+        			<a href="<c:if test="${en }"><c:url value='/news/${news.pageNo }'/></c:if><c:if test="${!en }"><c:url value='/ch/news/${news.pageNo }'/></c:if>" class="active">${status.count }</a>
         		</c:if>
         		<c:if test="${!isActive }">
-        			<a href="<c:if test="${en }"><c:url value='/news/${status.count }'/></c:if><c:url value='/news/${status.count }'/><c:if test="${!en }">最新消息</c:if>">${status.count }</a>
+        			<a href="<c:if test="${en }"><c:url value='/news/${status.count }'/></c:if><c:if test="${!en }"><c:url value='/ch/news/${status.count }'/></c:if>">${status.count }</a>
         		</c:if>
         	</c:forEach>
         </div>

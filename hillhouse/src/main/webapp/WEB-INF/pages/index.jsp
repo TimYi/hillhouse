@@ -51,13 +51,13 @@ Hillhouse is a long-term fundamental equity investor with a global mandate.  Ind
         </p>
         <h2 class="mgt-2 bold"><c:if test="${en }">Our People</c:if><c:if test="${!en }">关于我们</c:if></h2>
         <div class="mgt-half clear-fix">
-            <img class="hm-avatar" src="${figures[0].avatar }">
+            <img class="hm-avatar fl" src="${figures[0].avatar }">
             <div class="width-seventy fl mgt-half mgl-1 clear-fix">
-                <a class="bold font-bigger">${figures[0].lastname }</a>
+                <p class="bold font-bigger inline">${figures[0].lastname }</p>
                 <p class="inline mgl-1">|</p>
-                <a class="mgl-1">${figures[0].title }</a>
+                <p class="mgl-1 inline">${figures[0].title }</p>
                 <pre class="mgt-1">${figures[0].introduction }</pre>
-            	<a class="underline mgt-1 block" href="<c:if test="${en }"><c:url value='/figures/${figure.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/figures/${figure.id }'/></c:if>">
+            	<a class="underline mgt-1 block" href="<c:if test="${en }"><c:url value='/figures/${figures[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/figures/${figures[0].id }'/></c:if>">
             	<c:if test="${en }">Full Profile</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
             	</a>                                
             </div>
@@ -67,9 +67,9 @@ Hillhouse is a long-term fundamental equity investor with a global mandate.  Ind
 		<c:forEach items="${figures }" var="figure" varStatus="status">
 			<c:if test="${status.index ne 0 }">
 				<div class="hm-peoples mgt-2">
-		            <a class="bold font-bigger">${figure.lastname }</a>
+		            <p class="bold font-bigger inline">${figure.lastname }</p>
 	                <p class="mgl-1 inline">|</p>
-	                <a class="mgl-1">${figure.title }</a>
+	                <p class="mgl-1 inline">${figure.title }</p>
 	                <pre class="mgt-1">${figure.introduction }</pre>
 	                <a class="underline mgt-1 block" href="<c:if test="${en }"><c:url value='/figures/${figure.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/figures/${figure.id }'/></c:if>">
             	<c:if test="${en }">Full Profile</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>

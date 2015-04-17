@@ -23,7 +23,7 @@
             <img src="${figure.avatar }"/>
             <div>
                 <h3>${figure.summary }</h3><br/>
-                <pre>${figure.story }</pre>
+                <div>${figure.story }</div>
             </div>
         </div>
     </div>

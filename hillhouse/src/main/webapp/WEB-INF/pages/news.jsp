@@ -19,17 +19,33 @@
         <h2 class="bold"><c:if test="${en }">News</c:if><c:if test="${!en }">最新消息</c:if></h2>
         <div class="block mgt-1"></div>
         <c:forEach items="${news.result }" var="n" varStatus="status">
-        	<div class="new-list">
-	            <div>
+        	<div style="width:50%" class="new-list <c:if test='${status.index % 2 eq 0 }'>fl</c:if><c:if test='${status.index % 2 eq 1 }'>fr</c:if>">
+	            <div style="width:100%">
 	                <img src="${n.img }">
 	                <div>
 	                    <h4>${n.title }</h4>
 	                    <p class="mgt-1"><fmt:formatDate value="${n.date }" pattern="dd.MM.yyyy"/> | ${n.author } | ${n.origion }</p>
-	                    <pre class="mgt-1">${n.summary }</pre>
-	                    <a href="${n.link }" target="_blank" class="mgt-1 block">read the artical at ${n.linkShorthand } <span class="color-dangerous">></span></a>
+	                    <div class="mgt-1 news-content">${n.summary }</div>
 	                </div>
 	            </div>            
 	        </div>
+	        <c:if test="${status.index % 2 eq 1 or status.last }">
+	        	<div class="news-links">
+	        		<c:if test="${status.index % 2 eq 0 }" var="single">
+			        	<div class="news-link">
+			        		<a href="${n.link }" target="_blank" class="mgt-1 block"><c:if test="${en }">read the artical at ${n.linkShorthand }</c:if><c:if test="${!en }">更多内容尽在  ${n.linkShorthand }</c:if> <span class="color-dangerous">></span></a>
+			        	</div>
+			        </c:if>
+			        <c:if test="${!single }">
+			        	<div class="news-link">
+			        		<a href="${news.result[status.index-1].link }" target="_blank" class="mgt-1 block"><c:if test="${en }">read the artical at ${news.result[status.index-1].linkShorthand }</c:if><c:if test="${!en }">更多内容尽在  ${news.result[status.index-1].linkShorthand }</c:if> <span class="color-dangerous">></span></a>
+			        	</div>
+			        	<div class="news-link">
+			        		<a href="${n.link }" target="_blank" class="mgt-1 block"><c:if test="${en }">read the artical at ${n.linkShorthand }</c:if><c:if test="${!en }">更多内容尽在  ${n.linkShorthand }</c:if> <span class="color-dangerous">></span></a>
+			        	</div>
+			        </c:if>
+	        	</div>
+	        </c:if>
 	        <c:if test="${status.index % 2 eq 1 }">
 	        	<div class="clear"></div>
 	        </c:if>

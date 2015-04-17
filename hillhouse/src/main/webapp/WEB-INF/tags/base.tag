@@ -17,6 +17,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Hillhouse Capital Group</title>
     <link href="<c:url value='/resources/css/common.css'/>" rel="stylesheet">
+    <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
+    <script src="<c:url value='/resources/js/jquery-cookie.js'/>"></script>
+    <!-- <script src="<c:url value='/resources/js/less.js'/>"></script> -->
+    <script src="<c:url value='/resources/js/common.js'/>"></script>     
 </head>
 <body>
 	<jsp:invoke fragment="beforeHeader"/>
@@ -133,9 +137,5 @@
         </div>
     </div> 
     </div>   
-    <script src="<c:url value='/resources/js/jquery-1.11.1.js'/>"></script>
-    <script src="<c:url value='/resources/js/jquery-cookie.js'/>"></script>
-    <!-- <script src="<c:url value='/resources/js/less.js'/>"></script> -->
-    <script src="<c:url value='/resources/js/common.js'/>"></script> 
 </body>
 </html>

@@ -8,6 +8,15 @@
 </jsp:attribute>
 <jsp:attribute name="beforeHeader">	
 <c:if test="${en }">
+	<script>
+		if(!isFresh()) {
+			$(function(){
+				$(home());
+			})	        
+	    } else {
+	    	document.write('<link href="<c:url value='/resources/css/home.css'/>" rel="stylesheet">');
+	    }
+	</script>
 	<div id="hm-slide">
         <header class="header">
             <div class="logo"></div>
@@ -15,7 +24,7 @@
                 <li class="bold"><a class="mgl-2">ABOUT US</a></li>
                 <li class="bold"><a href="<c:url value='/storys'/>">ENTREPRENEUR STORIES</a></li>
 		        <li class="bold"><a href="<c:url value='/portfolios'/>">PORTFOLIO</a></li>
-		        <li class="bold"><a href="<c:url value='news'/>">NEWS</a></li>
+		        <li class="bold"><a href="<c:url value='news/1'/>">NEWS</a></li>
             </ul>
             <ul class="fr">
                 <li class="bold"><a href="<c:url value='/'/>" class="active">En</a></li>
@@ -30,7 +39,7 @@
             </div>            
         </div>
     </div>   
-    </c:if> 
+</c:if> 
 </jsp:attribute>
 
 <jsp:body>
@@ -56,7 +65,7 @@ Hillhouse is a long-term fundamental equity investor with a global mandate.  Ind
                 <p class="bold font-bigger inline">${figures[0].lastname }</p>
                 <p class="inline mgl-1">|</p>
                 <p class="mgl-1 inline">${figures[0].title }</p>
-                <pre class="mgt-1">${figures[0].introduction }</pre>
+                <div class="mgt-1">${figures[0].introduction }</div>
             	<a class="underline mgt-1 block" href="<c:if test="${en }"><c:url value='/figures/${figures[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/figures/${figures[0].id }'/></c:if>">
             	<c:if test="${en }">Full Profile</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
             	</a>                                
@@ -70,7 +79,7 @@ Hillhouse is a long-term fundamental equity investor with a global mandate.  Ind
 		            <p class="bold font-bigger inline">${figure.lastname }</p>
 	                <p class="mgl-1 inline">|</p>
 	                <p class="mgl-1 inline">${figure.title }</p>
-	                <pre class="mgt-1">${figure.introduction }</pre>
+	                <div class="mgt-1">${figure.introduction }</div>
 	                <a class="underline mgt-1 block" href="<c:if test="${en }"><c:url value='/figures/${figure.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/figures/${figure.id }'/></c:if>">
             	<c:if test="${en }">Full Profile</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
             	</a>              

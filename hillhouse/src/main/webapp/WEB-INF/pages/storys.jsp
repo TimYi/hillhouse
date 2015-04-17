@@ -20,7 +20,7 @@
             <img class="es-figure-image" src="${storys[0].img }">
             <div class="es-figure-description">
                 <p class="h2 mgt-2">${storys[0].title }</p>
-                <pre class="mgt-2">${storys[0].introduction }</pre>
+                <div class="mgt-2">${storys[0].introduction }</div>
                 <a href="<c:if test="${en }"><c:url value='/storys/${storys[0].id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${storys[0].id }'/></c:if>" class="text-right mgt-2 block">
                     <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
                 </a>
@@ -39,17 +39,17 @@
 	        	</c:otherwise>
         	</c:choose>        	
         		<img src="${story.img }" />		
-		                <div class="es-content">
-		                	<div>
-		                    <h3>${story.title }</h3>
-		                    <pre class="mgt-2 font-small">${story.introduction }</pre>
-		                	</div>
-		                    <a href="<c:if test="${en }"><c:url value='/storys/${story.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${story.id }'/></c:if>" class="text-right mgt-2 block">
-			                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
-			                </a>
-		                </div>
-		            </div>
-		         </c:if>
+	                <div class="es-content">
+	                	<div>
+	                    <h3>${story.title }</h3>
+	                    <div class="mgt-2 font-small">${story.introduction }</div>
+	                	</div>
+	                    <a href="<c:if test="${en }"><c:url value='/storys/${story.id }'/></c:if><c:if test="${!en }"><c:url value='/ch/storys/${story.id }'/></c:if>" class="text-right mgt-2 block">
+		                    <c:if test="${en }">Full interview</c:if><c:if test="${!en }">详情</c:if> <span class="color-dangerous">></span>
+		                </a>
+	                </div>
+	            </div>
+	         </c:if>
         	</c:forEach>
         </div>
     </div>

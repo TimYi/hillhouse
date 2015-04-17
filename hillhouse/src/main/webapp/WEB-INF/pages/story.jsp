@@ -21,7 +21,7 @@
             <img src="${story.img }"/>
             <div>
                 <h3>${story.summary }</h3><br/>
-                <pre>${story.content }</pre>
+                <div>${story.content }</div>
             </div>
         </div>
     </div>

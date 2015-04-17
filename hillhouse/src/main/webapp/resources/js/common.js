@@ -1,10 +1,11 @@
 
 $(function(){	
+	/*
     if($(".hm").size()>0) {
        if(!isFresh()) {
             home();
         }
-    }
+    }*/
     //将Contact表单改为ajax提交
     $("#contact").submit(function(e) {        
         var form=$(this);
